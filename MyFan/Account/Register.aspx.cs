@@ -6,6 +6,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Membership.OpenAuth;
+using System.Data.SqlClient;
 
 namespace MyFan.Account
 {
@@ -18,14 +19,23 @@ namespace MyFan.Account
 
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
+            Connection connection = new Connection();
+            if (connection.openConnection())
+            {
+                Object obj = connection.executeStoredProcedure("FanaticosAdd", 
+                    new SqlParameter("@nombre_usuario", "daniel"),
+                    new SqlParameter("@contrasenia", "1234567"),
+                    new SqlParameter("@correo_electronico", "dcortes92@hotmail.com"));
+            }
+
+            /*FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
 
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (!OpenAuth.IsLocalUrl(continueUrl))
             {
                 continueUrl = "~/";
             }
-            Response.Redirect(continueUrl);
+            Response.Redirect(continueUrl);*/
         }
     }
 }
