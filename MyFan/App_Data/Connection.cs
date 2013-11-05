@@ -8,7 +8,7 @@ using System.Data;
 using System.Security;
 using System.Configuration;
 
-namespace MyFan
+namespace MyFan.App_Data
 {
     /// <summary>
     /// Access the database, used to execute stored procedures.

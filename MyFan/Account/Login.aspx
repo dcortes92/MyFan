@@ -10,7 +10,8 @@
         <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox><br />
         <asp:Label ID="lblPassword" runat="server" Text="Contraseña: "></asp:Label><br />
         <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox><br />
-        <asp:Button ID="btnLogin" runat="server" Text="Inciar sesión" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" runat="server" Text="Inciar sesión" OnClick="btnLogin_Click" /><br />
+        <asp:Label ID="lblError" runat="server" CssClass="error"></asp:Label>
         
         <p>
             <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Registrarse</asp:HyperLink>

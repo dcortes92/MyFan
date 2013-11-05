@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MyFan.App_Data;
 
 namespace MyFan.Account
 {
@@ -42,32 +43,30 @@ namespace MyFan.Account
                         reader = (SqlDataReader)obj;
                         if (reader.Read())
                         {
-                            //Usuario user = new Usuario(lector);
-                            //FormsAuthentication.RedirectFromLoginPage(LoginUser.UserName, false);
-                            FormsAuthentication.RedirectFromLoginPage("Daniel", false);
-                            //Session["Usuario"] = user;
+                            Fan fan = new Fan(reader);
+                            
+                            FormsAuthentication.RedirectFromLoginPage(fan.Nombre_Usuario, false);
+                            Session["Fan"] = fan;
                         }
                         else
                         {
-                            //LoginUser.FailureText = "Nombre de usuario y/o contraseña incorrectos";
+                            lblError.Text = "Nombre de usuario y/o contraseña incorrectos";                            
                         }
                     }
                     else if (obj.GetType() == typeof(string))
                     {
-                        //LoginUser.FailureText = "Ha ocurrido un error al leer los datos: " +
-                        // (string)objeto;
+                        lblError.Text = "Ha ocurrido un error al leer los datos: " + (string)obj;
                     }
                     else
                     {
-                        //LoginUser.FailureText = "Error desconocido";
+                        lblError.Text = "Error desconocido, por favor intente inciar sesión nuevamente.";
                     }
                 }
                 else
                 {
-                    //LoginUser.FailureText = "Nombre de usuario o contraseña incorrectos";
+                    lblError.Text = "Nombre de usuario y/o contraseña incorrectos";
                 }
-            }
-            
+            }            
         }
     }
 }

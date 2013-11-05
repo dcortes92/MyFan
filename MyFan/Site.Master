@@ -75,9 +75,11 @@
     <div id="body">
         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
         <section class="content-wrapper main-content clear-fix">
-            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />            
         </section>
     </div>
+
+    
     <footer>
         <div class="content-wrapper">
             <div class="float-left">

@@ -8,88 +8,33 @@ namespace MyFan.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
-        protected string SuccessMessage
-        {
-            get;
-            private set;
-        }
-
-        protected bool CanRemoveExternalLogins
-        {
-            get;
-            private set;
-        }
+        Fan fan;
 
         protected void Page_Load()
         {
+            fan = (Fan)Session["Fan"];
             if (!IsPostBack)
             {
-                // Determinar las secciones que se van a presentar
-                var hasLocalPassword = OpenAuth.HasLocalPassword(User.Identity.Name);
-                setPassword.Visible = !hasLocalPassword;
-                changePassword.Visible = hasLocalPassword;
-
-                CanRemoveExternalLogins = hasLocalPassword;
-
-                // Presentar mensaje de operación correcta
-                var message = Request.QueryString["m"];
-                if (message != null)
+                txtUserName.Text = fan.Nombre_Usuario;
+                txtEmail.Text = fan.Correo_Electronico;
+                txtName.Text = fan.Nombre;
+                txtLastName1.Text = fan.Apellido1;
+                txtLastName2.Text = fan.Apellido2;
+                lblMemberSince.Text = "Unido el " + fan.Fecha_Creacion;
+                if (fan.Genero == null)
                 {
-                    // Seccionar la cadena de consulta desde la acción
-                    Form.Action = ResolveUrl("~/Account/Manage");
-
-                    SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Su contraseña se ha cambiado."
-                        : message == "SetPwdSuccess" ? "Su contraseña se ha establecido."
-                        : message == "RemoveLoginSuccess" ? "El inicio de sesión externo se ha quitado."
-                        : String.Empty;
-                    successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
+                    ddlGender.SelectedIndex = 2;
                 }
-            }
-
-        }
-
-        protected void setPassword_Click(object sender, EventArgs e)
-        {
-            if (IsValid)
-            {
-                var result = OpenAuth.AddLocalPassword(User.Identity.Name, password.Text);
-                if (result.IsSuccessful)
+                else if (fan.Genero == true)
                 {
-                    Response.Redirect("~/Account/Manage?m=SetPwdSuccess");
+                    ddlGender.SelectedIndex = 0;
                 }
                 else
                 {
-
-                    ModelState.AddModelError("NewPassword", result.ErrorMessage);
-
+                    ddlGender.SelectedIndex = 1;
                 }
             }
-        }
 
-
-        public IEnumerable<OpenAuthAccountData> GetExternalLogins()
-        {
-            var accounts = OpenAuth.GetAccountsForUser(User.Identity.Name);
-            CanRemoveExternalLogins = CanRemoveExternalLogins || accounts.Count() > 1;
-            return accounts;
-        }
-
-        public void RemoveExternalLogin(string providerName, string providerUserId)
-        {
-            var m = OpenAuth.DeleteAccount(User.Identity.Name, providerName, providerUserId)
-                ? "?m=RemoveLoginSuccess"
-                : String.Empty;
-            Response.Redirect("~/Account/Manage" + m);
-        }
-
-
-        protected static string ConvertToDisplayDateTime(DateTime? utcDateTime)
-        {
-            // Puede cambiar este método para convertir la hora y fecha UTC con el formato y el desfase
-            // deseados. En este caso, se convertirá a la zona horaria del servidor y se asignará el formato
-            // de cadena de hora larga y fecha corta mediante la cultura de subproceso actual.
-            return utcDateTime.HasValue ? utcDateTime.Value.ToLocalTime().ToString("G") : "[nunca]";
-        }
+        }               
     }
 }

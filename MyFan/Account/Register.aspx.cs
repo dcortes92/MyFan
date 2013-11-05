@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Membership.OpenAuth;
 using System.Data.SqlClient;
+using MyFan.App_Data;
 
 namespace MyFan.Account
 {
@@ -26,7 +27,13 @@ namespace MyFan.Account
                 Object obj = connection.executeStoredProcedure("FanaticosAdd",
                     new SqlParameter("@nombre_usuario", txtUserName.Text),
                     new SqlParameter("@contrasenia", txtPassword.Text),
-                    new SqlParameter("@correo_electronico", txtEmail.Text));                
+                    new SqlParameter("@fecha_creacion", DateTime.Now.Date.ToShortDateString()),
+                    new SqlParameter("@correo_electronico", txtEmail.Text));
+
+                Fan fan = new Fan(txtUserName.Text, txtPassword.Text, DateTime.Now.Date.ToShortDateString(), txtEmail.Text);
+
+                FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+                Session["Fan"] = fan;
             }
         }
     }
