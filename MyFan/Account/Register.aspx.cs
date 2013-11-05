@@ -14,28 +14,20 @@ namespace MyFan.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+            //RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
         }
 
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
+        protected void btnRegister_Click(object sender, EventArgs e)
         {
             Connection connection = new Connection();
+
             if (connection.openConnection())
             {
-                Object obj = connection.executeStoredProcedure("FanaticosAdd", 
-                    new SqlParameter("@nombre_usuario", "daniel"),
-                    new SqlParameter("@contrasenia", "1234567"),
-                    new SqlParameter("@correo_electronico", "dcortes92@hotmail.com"));
+                Object obj = connection.executeStoredProcedure("FanaticosAdd",
+                    new SqlParameter("@nombre_usuario", txtUserName.Text),
+                    new SqlParameter("@contrasenia", txtPassword.Text),
+                    new SqlParameter("@correo_electronico", txtEmail.Text));                
             }
-
-            /*FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
-
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (!OpenAuth.IsLocalUrl(continueUrl))
-            {
-                continueUrl = "~/";
-            }
-            Response.Redirect(continueUrl);*/
         }
     }
 }

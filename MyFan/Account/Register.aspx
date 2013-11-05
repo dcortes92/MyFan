@@ -3,60 +3,24 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
-        <h2>Use el formulario siguiente para crear una cuenta nueva.</h2>
     </hgroup>
-
-    <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser">
-        <LayoutTemplate>
-            <asp:PlaceHolder runat="server" ID="wizardStepPlaceholder" />
-            <asp:PlaceHolder runat="server" ID="navigationPlaceholder" />
-        </LayoutTemplate>
-        <WizardSteps>
-            <asp:CreateUserWizardStep runat="server" ID="RegisterUserWizardStep">
-                <ContentTemplate>
-                    <p class="message-info">
-                        Es necesario que las contraseñas tengan al menos <%: Membership.MinRequiredPasswordLength %> caracteres.
-                    </p>
-
-                    <p class="validation-summary-errors">
-                        <asp:Literal runat="server" ID="ErrorMessage" />
-                    </p>
-
-                    <fieldset>
-                        <legend>Formulario de registro</legend>
-                        <ol>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="UserName">Nombre de usuario</asp:Label>
-                                <asp:TextBox runat="server" ID="UserName" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
-                                    CssClass="field-validation-error" ErrorMessage="El campo de nombre de usuario es obligatorio." />
-                            </li>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="Email">Dirección de correo electrónico</asp:Label>
-                                <asp:TextBox runat="server" ID="Email" TextMode="Email" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                    CssClass="field-validation-error" ErrorMessage="El campo de dirección de correo es obligatorio." />
-                            </li>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="Password">Contraseña</asp:Label>
-                                <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
-                                    CssClass="field-validation-error" ErrorMessage="El campo de contraseña es obligatorio." />
-                            </li>
-                            <li>
-                                <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Confirmar contraseña</asp:Label>
-                                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="El campo de confirmación de contraseña es obligatorio." />
-                                <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="La contraseña y la contraseña de confirmación no coinciden." />
-                            </li>
-                        </ol>
-                        <asp:Button runat="server" CommandName="MoveNext" Text="Registrarse" />
-                    </fieldset>
-                </ContentTemplate>
-                <CustomNavigationTemplate />
-            </asp:CreateUserWizardStep>
-        </WizardSteps>
-    </asp:CreateUserWizard>
+    <asp:Label ID="lblUserName" runat="server" Text="Nombre de usuario: " CssClass="label"></asp:Label><br />
+    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ControlToValidate="txtUserName" ErrorMessage="El nombre de usuario es obligatorio" CssClass="message-error"></asp:RequiredFieldValidator>
+    <br />
+    <asp:Label ID="lblEmail" runat="server" Text="Correo electrónico: " CssClass="label"></asp:Label><br />
+    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="El correo electrónico es obligatorio" CssClass="message-error"></asp:RequiredFieldValidator>
+    <br /><asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Por favor, ingrese una dirección de correo electrónica válida." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" CssClass="message-error"></asp:RegularExpressionValidator>
+    <br />
+    <asp:Label ID="lblPassword" runat="server" Text="Contraseña: " CssClass="label"></asp:Label><br />
+    <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="La contraseña es obligatoria." CssClass="message-error"></asp:RequiredFieldValidator>
+    <br />
+    <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirmar contraseña: " CssClass="label"></asp:Label><br />
+    <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" ErrorMessage="Por favor, confirme la contraseña." ControlToValidate="txtConfirmPassword" CssClass="message-error"></asp:RequiredFieldValidator>
+    <br /><asp:CompareValidator ID="cvPassword" runat="server" ErrorMessage="Las contraseñas deben coincidir." ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" CssClass="message-error"></asp:CompareValidator>
+    <br />
+    <asp:Button ID="btnRegister" runat="server" Text="Registrarse" OnClick="btnRegister_Click" />
 </asp:Content>
