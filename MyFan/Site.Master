@@ -64,9 +64,12 @@
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li><a id="A3" runat="server" href="~/">Inicio</a></li>
+                        <li><a id="A4" runat="server" href="~/">Recomendaciones</a></li>
+                        <li><a id="A5" runat="server" href="~/">Eventos</a></li>
+                        <li><a id="A6" runat="server" href="~/">Galer&iacute;a</a></li>
+                        <li><a id="A7" runat="server" href="~/About">Acerca de</a></li>
+                        <li><a id="A8" runat="server" href="~/Contact">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -83,7 +86,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - MyFan</p>
+                <p><a href="About.aspx"><%: DateTime.Now.Year %> - MyFan</a> <br /><a href="Contact.aspx">Contacto</a></p>
             </div>
         </div>
     </footer>

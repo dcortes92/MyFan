@@ -37,7 +37,7 @@ namespace MyFan.Account
                 if (obj != null)
                 {
                     SqlDataReader reader;
-
+                    
                     if (obj.GetType() == typeof(SqlDataReader))
                     {
                         reader = (SqlDataReader)obj;

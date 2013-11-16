@@ -27,6 +27,11 @@ namespace MyFan.App_Data
             connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyFanConnection"].ConnectionString);
         }
 
+        public Connection(String connectionString)
+        {
+            connection = new SqlConnection(connectionString);
+        }
+
         /// <summary>
         /// Opens the connection.
         /// </summary>
@@ -41,6 +46,11 @@ namespace MyFan.App_Data
             catch (SqlException ex)
             {
                 ex.ToString(); //In case of an error, debbug an inspect the exception.
+                return false;
+            }
+            catch (TimeoutException ex)
+            {
+                ex.ToString();
                 return false;
             }
         }
