@@ -26,12 +26,26 @@ namespace MyFan.App_Code.Fanatico
         public Fan(SqlDataReader reader)
         {
             id_fanatico_pk = int.Parse(reader[0].ToString());
-            nombre = reader[1].ToString();
-            apellido1 = reader[2].ToString();
-            apellido2 = reader[3].ToString();
-            genero = reader[6] as bool? ?? null;
-            fecha_nacimiento = reader[7].ToString();
-            id_ciudad_fk = reader[8].ToString() == "" ? -1 : int.Parse(reader[9].ToString()) ;
+            nombre = reader[2].ToString();
+            apellido1 = reader[3].ToString();
+            apellido2 = reader[4].ToString();
+            genero = reader[5] as bool? ?? null;
+            fecha_nacimiento = reader[6].ToString();
+            id_ciudad_fk = reader[7].ToString() == "" ? -1 : int.Parse(reader[9].ToString()) ;
+        }
+
+        /// <summary>
+        /// Creates a new instance of fan when the user is registered.
+        /// </summary>
+        public Fan()
+        {
+            this.id_fanatico_pk = -1;
+            this.nombre = "";
+            this.apellido1 = "";
+            this.apellido2 = "";
+            this.genero = null;
+            this.fecha_nacimiento = "";
+            this.id_ciudad_fk = -1;
         }
 
         /// <summary>

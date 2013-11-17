@@ -9,11 +9,15 @@ using Microsoft.AspNet.Membership.OpenAuth;
 using System.Data.SqlClient;
 using MyFan.App_Data;
 using MyFan.App_Code.Fanatico;
+using MyFan.App_Code.Usuario;
 
 namespace MyFan.Account
 {
     public partial class Register : Page
     {
+        UsuarioDAL usuarioDAL;
+        Usuario usuario;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
@@ -36,6 +40,14 @@ namespace MyFan.Account
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
                 Session["Fan"] = fan;
             }*/
+
+            usuarioDAL = new UsuarioDAL();
+            if (usuarioDAL.add(txtUserName.Text, txtPassword.Text, txtEmail.Text))
+            {
+                Session["Usuario"] = new Usuario(txtUserName.Text, txtPassword.Text, txtEmail.Text, DateTime.Now.Date.ToShortDateString());
+                Session["Fan"] = new Fan();
+                FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+            }
         }
     }
 }

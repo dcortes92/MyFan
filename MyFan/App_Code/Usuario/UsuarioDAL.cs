@@ -38,7 +38,7 @@ namespace MyFan.App_Code.Usuario
 
             if (connection.openConnection())
             {
-                Object obj = connection.executeStoredProcedure("UsuariosLogin",
+                obj = connection.executeStoredProcedure("UsuariosLogin",
                     new SqlParameter("@nombre_usuario", username),
                     new SqlParameter("@contrasenia", password));
 
@@ -59,6 +59,59 @@ namespace MyFan.App_Code.Usuario
             }
 
             return usuario;
+        }
+
+        /// <summary>
+        /// Registers a new user in the systen
+        /// </summary>
+        /// <param name="nombre_usuario">The user name to be registered.</param>
+        /// <param name="contrasenia">The password of the user.</param>
+        /// <param name="correo_electronico">The e-mail of the user</param>
+        public bool add(String nombre_usuario, String contrasenia, String correo_electronico)
+        {
+            connection = new Connection();
+            bool retorno = false;
+            if (connection.openConnection())
+            {
+                Object obj = connection.executeStoredProcedure("UsuariosAdd",
+                     new SqlParameter("@nombre_usuario", nombre_usuario),
+                     new SqlParameter("@contrasenia", contrasenia),
+                     new SqlParameter("@fecha_creacion", DateTime.Now.Date.ToShortDateString()),
+                     new SqlParameter("@correo_electronico", correo_electronico));
+
+                if (obj != null)
+                {
+                    retorno = true;
+                }
+                connection.closeConnection();
+            }
+            return retorno;
+        }
+
+
+        /// <summary>
+        /// Updates the user info in the DB.
+        /// </summary>
+        /// <param name="nombre_usuario">The new user name.</param>
+        /// <param name="correo_electronico">The new e-mail.</param>
+        /// <returns>true if success, false otherwise.</returns>
+        public bool update(int id_usuario_pk, String nombre_usuario, String correo_electronico)
+        {
+            bool retorno = false;
+            if (connection.openConnection())
+            {
+                Object obj = connection.executeStoredProcedure("UsuariosUpdate",
+                    new SqlParameter("@id_usuario_pk", id_usuario_pk),
+                    new SqlParameter("@nombre_usuario", nombre_usuario),
+                    new SqlParameter("@correo_electronico", correo_electronico));
+
+                if (obj != null)
+                {
+                    retorno = true;
+                }
+                connection.closeConnection();
+            }
+            return retorno;
         }
     }
 }

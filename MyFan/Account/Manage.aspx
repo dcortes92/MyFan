@@ -134,13 +134,20 @@
             <asp:Label ID="Label2" runat="server" Text="País: " CssClass="label"></asp:Label><br />
             <asp:DropDownList ID="ddlPais" runat="server" DataSourceID="SqlDataSourceMyFan" DataTextField="pais" DataValueField="id_pais_pk" Height="28px" Width="311px">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSourceMyFan" runat="server" ConnectionString="<%$ ConnectionStrings:MyFanConnection %>" SelectCommand="SELECT * FROM [Paises]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceMyFan" runat="server" ConnectionString="<%$ ConnectionStrings:MyFanConnection %>" SelectCommand="SELECT [id_ciudad_pk], [id_pais_fk], [ciudad] FROM [Ciudades] WHERE ([id_pais_fk] = @id_pais_fk)">
+                <SelectParameters>
+                    <asp:SessionParameter DefaultValue="1" Name="id_pais_fk" SessionField="id_pais" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             <br />
             <asp:Label ID="Label3" runat="server" Text="Ciudad: " CssClass="label"></asp:Label><br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox><br />
+            <asp:DropDownList ID="ddlCiudad" runat="server" Height="16px" Width="306px" DataSourceID="SqlDataSourceMyFan">
+            </asp:DropDownList>
+            <br />
 
             <div style="float:left">
-                <asp:Button ID="btnUpdateInfo" runat="server" Text="Actualizar Información" />   
+                <asp:Button ID="btnUpdateInfo" runat="server" Text="Actualizar Información" />  <br />
+                <asp:Label ID="lblResult" runat="server" CssClass="message-success"></asp:Label>
             </div>
         </div>
     </section>

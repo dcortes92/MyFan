@@ -24,10 +24,10 @@ namespace MyFan.App_Code.Usuario
         public Usuario(SqlDataReader reader)
         {
             id_usuario_pk = int.Parse(reader[0].ToString());
-            nombre_usuario = reader[1].ToString();
+            correo_electronico = reader[1].ToString();
+            nombre_usuario = reader[2].ToString();
             contrasenia = ""; //The password is not read for security reasons.
-            correo_electronico = reader[2].ToString();
-            fecha_creacion = reader[3].ToString();
+            fecha_creacion = reader[4].ToString();
         }
 
         /// <summary>
