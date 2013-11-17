@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.AspNet.Membership.OpenAuth;
+using MyFan.App_Code.Fanatico;
 
 namespace MyFan.Account
 {
@@ -12,7 +12,7 @@ namespace MyFan.Account
 
         protected void Page_Load()
         {
-            fan = (Fan)Session["Fan"];
+            /*fan = (Fan)Session["Fan"];
             if (!IsPostBack)
             {
                 txtUserName.Text = fan.Nombre_Usuario;
@@ -23,17 +23,17 @@ namespace MyFan.Account
                 lblMemberSince.Text = "Unido el " + fan.Fecha_Creacion;
                 if (fan.Genero == null)
                 {
-                    ddlGender.SelectedIndex = 2;
+                    ddlGender.SelectedValue = "0";
                 }
                 else if (fan.Genero == true)
                 {
-                    ddlGender.SelectedIndex = 0;
+                    ddlGender.SelectedValue = "1";
                 }
                 else
                 {
-                    ddlGender.SelectedIndex = 1;
+                    ddlGender.SelectedValue = "2";
                 }
-            }
+            }*/
 
         }               
     }

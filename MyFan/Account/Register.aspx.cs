@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Membership.OpenAuth;
 using System.Data.SqlClient;
 using MyFan.App_Data;
+using MyFan.App_Code.Fanatico;
 
 namespace MyFan.Account
 {
@@ -20,7 +21,7 @@ namespace MyFan.Account
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Connection connection = new Connection();
+            /*Connection connection = new Connection();
 
             if (connection.openConnection())
             {
@@ -34,7 +35,7 @@ namespace MyFan.Account
 
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
                 Session["Fan"] = fan;
-            }
+            }*/
         }
     }
 }
