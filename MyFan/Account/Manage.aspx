@@ -37,7 +37,7 @@
                 <asp:ListItem Value="1">Mujer</asp:ListItem>
             </asp:DropDownList><br />
             <asp:Label ID="lblBirthday" runat="server" Text="Fecha de nacimiento: " CssClass="label"></asp:Label><br />
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="ddlDia" runat="server">
                 <asp:ListItem Selected="True" Value="0">Día</asp:ListItem>
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
@@ -70,7 +70,7 @@
                 <asp:ListItem>29</asp:ListItem>
                 <asp:ListItem>30</asp:ListItem>
                 <asp:ListItem>31</asp:ListItem>
-            </asp:DropDownList>&nbsp;<asp:DropDownList ID="DropDownList2" runat="server">
+            </asp:DropDownList>&nbsp;<asp:DropDownList ID="ddlMes" runat="server">
                 <asp:ListItem Value="0">Mes</asp:ListItem>
                 <asp:ListItem Value="1">Enero</asp:ListItem>
                 <asp:ListItem Value="2">Febrero</asp:ListItem>
@@ -84,7 +84,7 @@
                 <asp:ListItem Value="10">Octubre</asp:ListItem>
                 <asp:ListItem Value="11">Noviembre</asp:ListItem>
                 <asp:ListItem Value="12">Diciembre</asp:ListItem>
-            </asp:DropDownList>&nbsp;<asp:DropDownList ID="DropDownList3" runat="server">
+            </asp:DropDownList>&nbsp;<asp:DropDownList ID="ddlAnio" runat="server">
                 <asp:ListItem Value="0">Año</asp:ListItem>
                 <asp:ListItem>1970</asp:ListItem>
                 <asp:ListItem>1971</asp:ListItem>
@@ -132,21 +132,18 @@
             </asp:DropDownList>
             <br />
             <asp:Label ID="Label2" runat="server" Text="País: " CssClass="label"></asp:Label><br />
-            <asp:DropDownList ID="ddlPais" runat="server" DataSourceID="SqlDataSourceMyFan" DataTextField="pais" DataValueField="id_pais_pk" Height="28px" Width="311px">
+            <asp:DropDownList ID="ddlPais" runat="server" DataSourceID="SqlDataSourceMyFan" DataTextField="pais" DataValueField="id_pais_pk" Height="28px" Width="311px" AutoPostBack="True" OnSelectedIndexChanged="ddlPais_SelectedIndexChanged">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSourceMyFan" runat="server" ConnectionString="<%$ ConnectionStrings:MyFanConnection %>" SelectCommand="SELECT [id_ciudad_pk], [id_pais_fk], [ciudad] FROM [Ciudades] WHERE ([id_pais_fk] = @id_pais_fk)">
-                <SelectParameters>
-                    <asp:SessionParameter DefaultValue="1" Name="id_pais_fk" SessionField="id_pais" Type="Int32" />
-                </SelectParameters>
+            <asp:SqlDataSource ID="SqlDataSourceMyFan" runat="server" ConnectionString="<%$ ConnectionStrings:MyFanConnection %>" SelectCommand="SELECT * FROM [Paises]">
             </asp:SqlDataSource>
             <br />
             <asp:Label ID="Label3" runat="server" Text="Ciudad: " CssClass="label"></asp:Label><br />
-            <asp:DropDownList ID="ddlCiudad" runat="server" Height="16px" Width="306px" DataSourceID="SqlDataSourceMyFan">
+            <asp:DropDownList ID="ddlCiudad" runat="server" Height="28px" Width="311px" OnSelectedIndexChanged="ddlCiudad_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
 
             <div style="float:left">
-                <asp:Button ID="btnUpdateInfo" runat="server" Text="Actualizar Información" />  <br />
+                <asp:Button ID="btnUpdateInfo" runat="server" Text="Actualizar Información" OnClick="btnUpdateInfo_Click" />  <br />
                 <asp:Label ID="lblResult" runat="server" CssClass="message-success"></asp:Label>
             </div>
         </div>

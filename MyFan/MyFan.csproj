@@ -239,6 +239,8 @@
   <ItemGroup>
     <Compile Include="App_Code\Fanatico\Fanatico.cs" />
     <Compile Include="App_Code\Fanatico\FanaticoDAL.cs" />
+    <Compile Include="App_Code\Negocio\Fecha.cs" />
+    <Compile Include="App_Code\Negocio\MyListItem.cs" />
     <Compile Include="App_Code\Usuario\Usuario.cs" />
     <Compile Include="App_Code\Usuario\UsuarioDAL.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

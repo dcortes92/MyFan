@@ -18,6 +18,7 @@ namespace MyFan.App_Code.Fanatico
         private bool? genero;
         private String fecha_nacimiento;
         private int id_ciudad_fk;
+        private int id_pais_pk;
 
         /// <summary>
         /// Creates a new instance of fan based on a sql data reader.
@@ -31,7 +32,7 @@ namespace MyFan.App_Code.Fanatico
             apellido2 = reader[4].ToString();
             genero = reader[5] as bool? ?? null;
             fecha_nacimiento = reader[6].ToString();
-            id_ciudad_fk = reader[7].ToString() == "" ? -1 : int.Parse(reader[9].ToString()) ;
+            id_ciudad_fk = reader[7].ToString() == "" ? -1 : int.Parse(reader[7].ToString()) ;
         }
 
         /// <summary>
@@ -111,6 +112,13 @@ namespace MyFan.App_Code.Fanatico
             set { this.id_ciudad_fk = value; }
         }
 
-        
+        /// <summary>
+        /// Gets or sets the country of the Fan, used to determine the country.
+        /// </summary>
+        public int Id_pais_pk
+        {
+            get { return id_pais_pk; }
+            set { this.id_pais_pk = value; }
+        }
     }
 }

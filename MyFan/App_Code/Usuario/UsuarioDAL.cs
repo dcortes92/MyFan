@@ -97,6 +97,7 @@ namespace MyFan.App_Code.Usuario
         /// <returns>true if success, false otherwise.</returns>
         public bool update(int id_usuario_pk, String nombre_usuario, String correo_electronico)
         {
+            connection = new Connection();
             bool retorno = false;
             if (connection.openConnection())
             {

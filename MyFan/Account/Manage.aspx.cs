@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 using Microsoft.AspNet.Membership.OpenAuth;
 using MyFan.App_Code.Fanatico;
 using MyFan.App_Code.Usuario;
+using MyFan.App_Code.Negocio;
 
 namespace MyFan.Account
 {
@@ -11,6 +13,9 @@ namespace MyFan.Account
     {
         Fan fan;
         Usuario usuario;
+        Fecha fecha;
+        FanaticoDAL fanaticoDAL;
+        UsuarioDAL usuarioDAL;
 
         protected void Page_Load()
         {
@@ -36,8 +41,105 @@ namespace MyFan.Account
                 {
                     ddlGender.SelectedValue = "2";
                 }
+
+                if (fan.Fecha_Nacimiento != "")
+                {
+                    fecha = new Fecha();
+                    string[] fechaparsed = fecha.parsear(fan.Fecha_Nacimiento);
+                    ddlAnio.SelectedValue = fechaparsed[0];
+                    ddlMes.SelectedValue = int.Parse(fechaparsed[1]).ToString();
+                    ddlDia.SelectedValue = int.Parse(fechaparsed[2]).ToString();
+                }
+
+                if (fan.Id_pais_pk != -1)
+                {
+                    ddlPais.SelectedIndex = fan.Id_pais_pk - 1;
+                    populateddlCiudadLoad();
+                    ddlCiudad.SelectedIndex = fan.Id_ciudad_fk;
+                }
             }
 
-        }               
+        }
+
+        
+        protected void btnUpdateInfo_Click(object sender, EventArgs e)
+        {
+            fecha = new Fecha();
+            String nueva_fecha_nacimiento = fecha.contriur(ddlDia.SelectedValue, ddlMes.SelectedValue, ddlAnio.SelectedValue);
+            if (nueva_fecha_nacimiento != "")
+            {
+                fan.Fecha_Nacimiento = nueva_fecha_nacimiento;
+            }
+            usuario.Correo_Electronico = txtEmail.Text;
+            usuario.Nombre_Usuario = txtUserName.Text;
+
+            fan.Nombre = txtName.Text;
+            fan.Apellido1 = txtLastName1.Text;
+            fan.Apellido2 = txtLastName2.Text;
+            fan.Genero = ddlGender.SelectedValue == "1" ? false:true ;
+            fan.Id_ciudad_fk = int.Parse(ddlCiudad.SelectedValue);
+
+            Session["Fan"] = fan;
+            Session["Usuario"] = usuario;
+
+            usuarioDAL = new UsuarioDAL();
+            fanaticoDAL = new FanaticoDAL();
+
+            if (usuarioDAL.update(usuario.Id_usuario_pk, usuario.Nombre_Usuario, usuario.Correo_Electronico))
+            {
+                if(fanaticoDAL.update(fan.Nombre, fan.Apellido1, fan.Apellido2, int.Parse(ddlGender.SelectedValue), nueva_fecha_nacimiento, fan.Id_ciudad_fk, usuario.Id_usuario_pk))
+                {
+                    lblResult.Text = "Información actualizada correctamente.";
+                }
+                else
+                {
+                    lblResult.CssClass = "message-error";
+                    lblResult.Text = "Ha ocurrido un error al actualizar su información";
+                }
+            }
+            else
+            {
+                lblResult.CssClass = "message-error";
+                lblResult.Text = "Ha ocurrido un error al actualizar su información";
+            }
+        }
+
+        protected void ddlCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        protected void ddlPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateddlCiudad();
+        }
+
+        private void populateddlCiudad()
+        {
+            ddlCiudad.Items.Clear();
+            fanaticoDAL = new FanaticoDAL();
+            List<MyListItem> ciudades = fanaticoDAL.getCiudades(int.Parse(ddlPais.SelectedValue));
+            for (int i = 0; i < ciudades.Count(); i++)
+            {
+                ListItem item = new ListItem();
+                item.Text = ciudades[i].Text;
+                item.Value = ciudades[i].Value;
+                ddlCiudad.Items.Add(item);
+            }
+        }
+
+        private void populateddlCiudadLoad()
+        {
+            ddlCiudad.Items.Clear();
+            fanaticoDAL = new FanaticoDAL();
+            List<MyListItem> ciudades = fanaticoDAL.getCiudades(fan.Id_pais_pk - 1);
+            for (int i = 0; i < ciudades.Count(); i++)
+            {
+                ListItem item = new ListItem();
+                item.Text = ciudades[i].Text;
+                item.Value = ciudades[i].Value;
+                ddlCiudad.Items.Add(item);
+            }
+        }
     }
 }

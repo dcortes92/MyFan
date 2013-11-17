@@ -44,6 +44,7 @@ namespace MyFan.Account
                 if (usuario != null)
                 {
                     Session["Fan"] = fan;
+                    Session["Pais"] = fan.Id_pais_pk;
                     FormsAuthentication.RedirectFromLoginPage(usuario.Nombre_Usuario, false);
                 }
                 else
