@@ -201,6 +201,15 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
+    <Content Include="WebPages\Fan\ArtistasConsultar.aspx" />
+    <Content Include="WebPages\Fan\Eventos.aspx" />
+    <Content Include="WebPages\Fan\EventosConsultar.aspx" />
+    <Content Include="WebPages\Fan\EventosCrear.aspx" />
+    <Content Include="WebPages\Fan\Artistas.aspx" />
+    <Content Include="WebPages\Fan\ArtistasSiguiendo.aspx" />
+    <Content Include="WebPages\Fan\Galeria.aspx" />
+    <Content Include="WebPages\Fan\Noticias.aspx" />
+    <Content Include="WebPages\Fan\Recomendaciones.aspx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -233,7 +242,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +324,69 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\ArtistasConsultar.aspx.cs">
+      <DependentUpon>ArtistasConsultar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\ArtistasConsultar.aspx.designer.cs">
+      <DependentUpon>ArtistasConsultar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\Eventos.aspx.cs">
+      <DependentUpon>Eventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\Eventos.aspx.designer.cs">
+      <DependentUpon>Eventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\EventosConsultar.aspx.cs">
+      <DependentUpon>EventosConsultar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\EventosConsultar.aspx.designer.cs">
+      <DependentUpon>EventosConsultar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\EventosCrear.aspx.cs">
+      <DependentUpon>EventosCrear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\EventosCrear.aspx.designer.cs">
+      <DependentUpon>EventosCrear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\Artistas.aspx.cs">
+      <DependentUpon>Artistas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\Artistas.aspx.designer.cs">
+      <DependentUpon>Artistas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\ArtistasSiguiendo.aspx.cs">
+      <DependentUpon>ArtistasSiguiendo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\ArtistasSiguiendo.aspx.designer.cs">
+      <DependentUpon>ArtistasSiguiendo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\Galeria.aspx.cs">
+      <DependentUpon>Galeria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\Galeria.aspx.designer.cs">
+      <DependentUpon>Galeria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\Noticias.aspx.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\Noticias.aspx.designer.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fan\Recomendaciones.aspx.cs">
+      <DependentUpon>Recomendaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fan\Recomendaciones.aspx.designer.cs">
+      <DependentUpon>Recomendaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -62,16 +62,37 @@
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </section>
-                <nav>
-                    <ul id="menu">
+                
+                    <!--<ul id="menu">
                         <li><a id="A3" runat="server" href="/WebPages/Default">Inicio</a></li>
                         <li><a id="A4" runat="server" href="~/">Recomendaciones</a></li>
                         <li><a id="A5" runat="server" href="~/">Eventos</a></li>
                         <li><a id="A6" runat="server" href="~/">Galer&iacute;a</a></li>
                         <li><a id="A7" runat="server" href="/WebPages/About">Acerca de</a></li>
                         <li><a id="A8" runat="server" href="/WebPages/Contact">Contacto</a></li>
-                    </ul>
-                </nav>
+                    </ul>-->
+                    <div id='cssmenu'>
+                        <ul>
+                           <li><a href="/WebPages/Default"><span>Inicio</span></a></li>
+                           <li class='has-sub'><a href="/WebPages/Fan/Artistas.aspx"><span>Artistas</span></a>
+                              <ul>
+                                 <li><a href="/WebPages/Fan/ArtistasSiguiendo.aspx"><span>Siguiendo</span></a></li>
+                                 <li class='last'><a href="/WebPages/Fan/ArtistasConsultar.aspx"><span>Consultar Artista</span></a></li>
+                              </ul>
+                           </li>
+                           <li><a href="/WebPages/Fan/Recomendaciones.aspx"><span>Recomendaciones</span></a></li>
+                           <li class='has-sub'><a href="/WebPages/Fan/Eventos.aspx"><span>Eventos</span></a>
+                              <ul>
+                                 <li><a href="/WebPages/Fan/EventosCrear.aspx"><span>Crear Evento</span></a></li>
+                                 <li class='last'><a href="/WebPages/Fan/EventosConsultar.aspx"><span>Consultar Evento</span></a></li>
+                              </ul>
+                           </li>
+                           <li><a href="/WebPages/Fan/Galeria.aspx"><span>Galería</span></a></li>
+                           <li><a href='#'><span>Acerca</span></a></li>
+                           <li class='last'><a href='#'><span>Contacto</span></a></li>
+                        </ul>
+                    </div>
+                
             </div>
         </div>
     </header>

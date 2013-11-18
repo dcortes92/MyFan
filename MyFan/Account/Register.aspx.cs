@@ -44,7 +44,8 @@ namespace MyFan.Account
             usuarioDAL = new UsuarioDAL();
             if (usuarioDAL.add(txtUserName.Text, txtPassword.Text, txtEmail.Text))
             {
-                Session["Usuario"] = new Usuario(txtUserName.Text, txtPassword.Text, txtEmail.Text, DateTime.Now.Date.ToShortDateString());
+                usuario = new Usuario(txtUserName.Text, txtPassword.Text, txtEmail.Text, DateTime.Now.Date.ToShortDateString());
+                Session["Usuario"] = usuario;
                 Session["Fan"] = new Fan();
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
             }
