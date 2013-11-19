@@ -132,7 +132,10 @@ namespace MyFan.App_Code.Evento
             fecha = reader[3].ToString();
             concierto = bool.Parse(reader[4].ToString());
             id_ciudad_fk = int.Parse(reader[5].ToString());
-            id_set_list_fk = int.Parse(reader[6].ToString());
+            if (reader.IsDBNull(6))
+                id_set_list_fk = 0;
+            else
+                id_set_list_fk = int.Parse(reader[6].ToString());
             id_fanatico_fk = int.Parse(reader[7].ToString());
         }
 

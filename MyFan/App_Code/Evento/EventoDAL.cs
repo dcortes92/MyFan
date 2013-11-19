@@ -26,6 +26,37 @@ namespace MyFan.App_Code.Evento
         }
 
         /// <summary>
+        /// Gets an array of Events based of the id of a given city.
+        /// </summary>
+        /// <param name="id_ciudad_fk">The id of the city.</param>
+        /// <returns>A list of events in the city.</returns>
+        public List<Evento> getByIdCiudad(int id_ciudad_fk)
+        {
+            connection = new Connection();
+            List<Evento> eventos = null;
+            if (connection.openConnection())
+            {
+                obj = connection.executeStoredProcedure("EventosGetByIdCiudad",
+                   new SqlParameter("@id_ciudad_fk", id_ciudad_fk));
+
+                if (obj != null)
+                {
+                    if (obj.GetType() == typeof(SqlDataReader))
+                    {
+                        reader = (SqlDataReader)obj;
+                        eventos = new List<Evento>();
+                        while (reader.Read())
+                        {
+                            eventos.Add(new Evento(reader));
+                        }
+                    }
+                }
+                connection.closeConnection();
+            }
+            return eventos;
+        }
+
+        /// <summary>
         /// Saves a new event in the DataBase.
         /// </summary>
         /// <returns></returns>

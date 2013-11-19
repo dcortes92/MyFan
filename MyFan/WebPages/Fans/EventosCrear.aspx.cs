@@ -14,14 +14,14 @@ namespace MyFan.WebPages.Fans
 {
     public partial class AgregarEvento : System.Web.UI.Page
     {
-        Usuario usuario;
-        UsuarioDAL usuarioDAL;
-        Fan fan;
-        FanaticoDAL fanaticoDAL;
-        CiudadDAL ciudadDAL;
-        Ciudad ciudad;
-        Evento evento;
-        EventoDAL eventoDAL;
+        private Usuario usuario;
+        private UsuarioDAL usuarioDAL;
+        private Fan fan;
+        private FanaticoDAL fanaticoDAL;
+        private CiudadDAL ciudadDAL;
+        private Ciudad ciudad;
+        private Evento evento;
+        private EventoDAL eventoDAL;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,6 +60,10 @@ namespace MyFan.WebPages.Fans
             if (eventoDAL.add(evento))
             {
                 lblResult.Text = "Evento creado correctamente";
+                txtContenido.Text = "";
+                txtTitulo.Text = "";
+                txtFecha.Text = "";
+                chkConcierto.Checked = false;
             }
             else
             {
@@ -85,6 +89,11 @@ namespace MyFan.WebPages.Fans
             }
         }
 
+        /// <summary>
+        /// Updates de date selected by the user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void cldFecha_SelectionChanged(object sender, EventArgs e)
         {
             txtFecha.Text = cldFecha.SelectedDate.ToShortDateString();

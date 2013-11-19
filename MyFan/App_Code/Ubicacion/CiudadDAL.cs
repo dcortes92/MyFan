@@ -43,5 +43,35 @@ namespace MyFan.App_Code.Ubicacion
             }
             return ciudades;
         }
+
+        /// <summary>
+        /// Gets the city name based on a given Id
+        /// </summary>
+        /// <param name="id_ciudad_pk">The id of the city.</param>
+        /// <returns>The name of the city.</returns>
+        public String getCiudadPorId(int id_ciudad_pk)
+        {
+            String retorno = "";
+            connection = new Connection();
+            if (connection.openConnection())
+            {
+                obj = connection.executeStoredProcedure("CiudadesGetById",
+                    new SqlParameter("@id_ciudad_pk", id_ciudad_pk));
+
+                if (obj != null)
+                {
+                    if (obj.GetType() == typeof(SqlDataReader))
+                    {
+                        reader = (SqlDataReader)obj;
+                        if (reader.Read())
+                        {
+                            retorno = reader[0].ToString();
+                        }
+                    }
+                }
+                connection.closeConnection();
+            }
+            return retorno;
+        }
     }
 }
