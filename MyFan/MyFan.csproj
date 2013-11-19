@@ -201,15 +201,15 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
-    <Content Include="WebPages\Fan\ArtistasConsultar.aspx" />
-    <Content Include="WebPages\Fan\Eventos.aspx" />
-    <Content Include="WebPages\Fan\EventosConsultar.aspx" />
-    <Content Include="WebPages\Fan\EventosCrear.aspx" />
-    <Content Include="WebPages\Fan\Artistas.aspx" />
-    <Content Include="WebPages\Fan\ArtistasSiguiendo.aspx" />
-    <Content Include="WebPages\Fan\Galeria.aspx" />
-    <Content Include="WebPages\Fan\Noticias.aspx" />
-    <Content Include="WebPages\Fan\Recomendaciones.aspx" />
+    <Content Include="WebPages\Fans\ArtistasConsultar.aspx" />
+    <Content Include="WebPages\Fans\Eventos.aspx" />
+    <Content Include="WebPages\Fans\EventosConsultar.aspx" />
+    <Content Include="WebPages\Fans\EventosCrear.aspx" />
+    <Content Include="WebPages\Fans\Artistas.aspx" />
+    <Content Include="WebPages\Fans\ArtistasSiguiendo.aspx" />
+    <Content Include="WebPages\Fans\Galeria.aspx" />
+    <Content Include="WebPages\Fans\Noticias.aspx" />
+    <Content Include="WebPages\Fans\Recomendaciones.aspx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -248,13 +248,17 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Evento\Evento.cs" />
+    <Compile Include="App_Code\Evento\Evento.cs" />
+    <Compile Include="App_Code\Evento\EventoDAL.cs" />
     <Compile Include="App_Code\Fanatico\Fanatico.cs" />
     <Compile Include="App_Code\Fanatico\FanaticoDAL.cs" />
+    <Compile Include="App_Code\Negocio\DAL.cs" />
     <Compile Include="App_Code\Negocio\Deserializer.cs" />
     <Compile Include="App_Code\Negocio\Fecha.cs" />
     <Compile Include="App_Code\Negocio\JSon.cs" />
     <Compile Include="App_Code\Negocio\MyListItem.cs" />
+    <Compile Include="App_Code\Ubicacion\Ciudad.cs" />
+    <Compile Include="App_Code\Ubicacion\CiudadDAL.cs" />
     <Compile Include="App_Code\Usuario\Usuario.cs" />
     <Compile Include="App_Code\Usuario\UsuarioDAL.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -328,73 +332,72 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\ArtistasConsultar.aspx.cs">
+    <Compile Include="WebPages\Fans\ArtistasConsultar.aspx.cs">
       <DependentUpon>ArtistasConsultar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\ArtistasConsultar.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\ArtistasConsultar.aspx.designer.cs">
       <DependentUpon>ArtistasConsultar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\Eventos.aspx.cs">
+    <Compile Include="WebPages\Fans\Eventos.aspx.cs">
       <DependentUpon>Eventos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\Eventos.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\Eventos.aspx.designer.cs">
       <DependentUpon>Eventos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\EventosConsultar.aspx.cs">
+    <Compile Include="WebPages\Fans\EventosConsultar.aspx.cs">
       <DependentUpon>EventosConsultar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\EventosConsultar.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\EventosConsultar.aspx.designer.cs">
       <DependentUpon>EventosConsultar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\EventosCrear.aspx.cs">
+    <Compile Include="WebPages\Fans\EventosCrear.aspx.cs">
       <DependentUpon>EventosCrear.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\EventosCrear.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\EventosCrear.aspx.designer.cs">
       <DependentUpon>EventosCrear.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\Artistas.aspx.cs">
+    <Compile Include="WebPages\Fans\Artistas.aspx.cs">
       <DependentUpon>Artistas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\Artistas.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\Artistas.aspx.designer.cs">
       <DependentUpon>Artistas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\ArtistasSiguiendo.aspx.cs">
+    <Compile Include="WebPages\Fans\ArtistasSiguiendo.aspx.cs">
       <DependentUpon>ArtistasSiguiendo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\ArtistasSiguiendo.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\ArtistasSiguiendo.aspx.designer.cs">
       <DependentUpon>ArtistasSiguiendo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\Galeria.aspx.cs">
+    <Compile Include="WebPages\Fans\Galeria.aspx.cs">
       <DependentUpon>Galeria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\Galeria.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\Galeria.aspx.designer.cs">
       <DependentUpon>Galeria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\Noticias.aspx.cs">
+    <Compile Include="WebPages\Fans\Noticias.aspx.cs">
       <DependentUpon>Noticias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\Noticias.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\Noticias.aspx.designer.cs">
       <DependentUpon>Noticias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPages\Fan\Recomendaciones.aspx.cs">
+    <Compile Include="WebPages\Fans\Recomendaciones.aspx.cs">
       <DependentUpon>Recomendaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\Fan\Recomendaciones.aspx.designer.cs">
+    <Compile Include="WebPages\Fans\Recomendaciones.aspx.designer.cs">
       <DependentUpon>Recomendaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\Artista\" />
-    <Folder Include="App_Code\Ubicacion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

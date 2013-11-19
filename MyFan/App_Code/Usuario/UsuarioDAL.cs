@@ -3,28 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyFan.App_Data;
+using MyFan.App_Code.Negocio;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace MyFan.App_Code.Usuario
 {
-    public class UsuarioDAL
+    /// <summary>
+    /// Handler of the class Usuario. This saves and modifies an instance of Usuario in the DataBase.
+    /// </summary>
+    public class UsuarioDAL : DAL
     {
-        /// <summary>
-        /// Connection object to acces de data base.
-        /// </summary>
-        private Connection connection;
-
-        /// <summary>
-        /// Object used to fecth data from DB and casting it to a DataReader
-        /// </summary>
-        private Object obj;
-
-        /// <summary>
-        /// DataReader used to fecth data from DB and parsing it to the object needed.
-        /// </summary>
-        private SqlDataReader reader;
-
         /// <summary>
         /// Logs in an user to the web page and returns an object of the user info.
         /// </summary>

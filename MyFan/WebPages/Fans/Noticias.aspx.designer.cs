@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace MyFan.WebPages.Fan {
+namespace MyFan.WebPages.Fans {
     
     
-    public partial class EventosConsultar {
+    public partial class Noticias {
     }
 }

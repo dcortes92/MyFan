@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MyFan.WebPages.Fan
+namespace MyFan.WebPages.Fans
 {
-    public partial class EventosConsultar : System.Web.UI.Page
+    public partial class ArtistasSiguiendo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

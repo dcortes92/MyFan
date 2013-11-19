@@ -74,21 +74,21 @@
                     <div id='cssmenu'>
                         <ul>
                            <li><a href="/WebPages/Default"><span>Inicio</span></a></li>
-                           <li><a href="/WebPages/Fan/Noticias.aspx"><span>Noticias</span></a></li>
+                           <li><a href="/WebPages/Fans/Noticias.aspx"><span>Noticias</span></a></li>
                            <li class='has-sub'><a href="/WebPages/Fan/Artistas.aspx"><span>Artistas</span></a>
                               <ul>
-                                 <li><a href="/WebPages/Fan/ArtistasSiguiendo.aspx"><span>Siguiendo</span></a></li>
-                                 <li class='last'><a href="/WebPages/Fan/ArtistasConsultar.aspx"><span>Consultar Artista</span></a></li>
+                                 <li><a href="/WebPages/Fans/ArtistasSiguiendo.aspx"><span>Siguiendo</span></a></li>
+                                 <li class='last'><a href="/WebPages/Fans/ArtistasConsultar.aspx"><span>Consultar Artista</span></a></li>
                               </ul>
                            </li>
-                           <li><a href="/WebPages/Fan/Recomendaciones.aspx"><span>Recomendaciones</span></a></li>
-                           <li class='has-sub'><a href="/WebPages/Fan/Eventos.aspx"><span>Eventos</span></a>
+                           <li><a href="/WebPages/Fans/Recomendaciones.aspx"><span>Recomendaciones</span></a></li>
+                           <li class='has-sub'><a href="/WebPages/Fans/Eventos.aspx"><span>Eventos</span></a>
                               <ul>
-                                 <li><a href="/WebPages/Fan/EventosCrear.aspx"><span>Crear Evento</span></a></li>
-                                 <li class='last'><a href="/WebPages/Fan/EventosConsultar.aspx"><span>Consultar Evento</span></a></li>
+                                 <li><a href="/WebPages/Fans/EventosCrear.aspx"><span>Crear Evento</span></a></li>
+                                 <li class='last'><a href="/WebPages/Fans/EventosConsultar.aspx"><span>Consultar Evento</span></a></li>
                               </ul>
                            </li>
-                           <li><a href="/WebPages/Fan/Galeria.aspx"><span>Galería</span></a></li>
+                           <li><a href="/WebPages/Fans/Galeria.aspx"><span>Galería</span></a></li>
                            <li><a href='#'><span>Acerca</span></a></li>
                            <li class='last'><a href='#'><span>Contacto</span></a></li>
                         </ul>
@@ -107,8 +107,8 @@
     
     <footer>
         <div class="content-wrapper">
-            <div class="float-left">
-                <p><a href="/WebPages/About.aspx"><%: DateTime.Now.Year %> - MyFan</a> <br /><a href="/WebPages/Contact.aspx">Contacto</a></p>
+            <div>
+                <p style="text-align:center"><a href="/WebPages/About.aspx"><%: DateTime.Now.Year %> - MyFan</a> <br /><a href="/WebPages/Contact.aspx">Contacto</a></p>
             </div>
         </div>
     </footer>

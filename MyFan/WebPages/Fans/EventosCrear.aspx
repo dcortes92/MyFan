@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" CodeBehind="EventosCrear.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MyFan.WebPages.Fan.AgregarEvento" %>
+﻿<%@ Page Language="C#" CodeBehind="EventosCrear.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MyFan.WebPages.Fans.AgregarEvento" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
@@ -26,6 +26,6 @@
         <hr />
     </div>
 
-    <asp:Button ID="btnCrearEvento" runat="server" Text="Crear Evento" /> <br />
+    <asp:Button ID="btnCrearEvento" runat="server" Text="Crear Evento" OnClick="btnCrearEvento_Click" /> <br />
     <asp:Label ID="lblResult" runat="server" CssClass="message-success"></asp:Label>
 </asp:Content>

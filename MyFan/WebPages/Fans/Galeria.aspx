@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Galeria.aspx.cs" Inherits="MyFan.WebPages.Fan.Galeria" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Galeria.aspx.cs" Inherits="MyFan.WebPages.Fans.Galeria" %>
 
 <asp:Content ID="MainContent" runat="server" ContentPlaceHolderID="MainContent">
     <hgroup class="title">

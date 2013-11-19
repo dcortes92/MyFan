@@ -3,33 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyFan.App_Data;
-using System.Data;
+using MyFan.App_Code.Negocio;
 using System.Data.SqlClient;
 using MyFan.App_Code.Fanatico;
-using MyFan.App_Code.Negocio;
 
 namespace MyFan.App_Code.Fanatico
 {
     /// <summary>
     /// Class used by the UI to fetch the user.
     /// </summary>
-    public class FanaticoDAL
+    public class FanaticoDAL : DAL
     {
-        /// <summary>
-        /// Connection object to acces de data base.
-        /// </summary>
-        private Connection connection;
-
-        /// <summary>
-        /// Object used to fecth data from DB and casting it to a DataReader
-        /// </summary>
-        private Object obj;
-
-        /// <summary>
-        /// DataReader used to fecth data from DB and parsing it to the object needed.
-        /// </summary>
-        private SqlDataReader reader;
-
         /// <summary>
         /// Logs in an user to the web page.
         /// </summary>

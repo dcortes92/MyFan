@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MyFan.WebPages.Fan
+namespace MyFan.WebPages.Fans
 {
     public partial class Recomendaciones : System.Web.UI.Page
     {
