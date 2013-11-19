@@ -85,7 +85,7 @@
                            <li class='has-sub'><a href="/WebPages/Fans/Eventos.aspx"><span>Eventos</span></a>
                               <ul>
                                  <li><a href="/WebPages/Fans/EventosCrear.aspx"><span>Crear Evento</span></a></li>
-                                 <li class='last'><a href="/WebPages/Fans/EventosConsultar.aspx"><span>Consultar Evento</span></a></li>
+                                 <li class='last'><a href="/WebPages/Fans/Eventos.aspx"><span>Eventos del &aacute;rea</span></a></li>
                               </ul>
                            </li>
                            <li><a href="/WebPages/Fans/Galeria.aspx"><span>Galería</span></a></li>

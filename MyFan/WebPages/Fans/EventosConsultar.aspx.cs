@@ -30,7 +30,7 @@ namespace MyFan.WebPages.Fans
             
             if (!IsPostBack)
             {
-                if (ubicacion != "" && temp != "")
+                if (ubicacion != null && temp != null)
                 {
                     id_evento_pk = int.Parse(temp);
                     txtCiudad.Text = ubicacion;
@@ -39,6 +39,7 @@ namespace MyFan.WebPages.Fans
                 else
                 {
                     btnActualizar.Enabled = false;
+                    Response.Redirect("/WebPages/Fans/Eventos.aspx");
                 }
             }
         }
@@ -60,6 +61,8 @@ namespace MyFan.WebPages.Fans
                     //getInfoSetList();
                     chkConcierto.Checked = true;
                     txtSetList.Enabled = true;
+                    txtSetList.Text = evento.Set_list;
+                    Session["Evento"] = evento;
                 }
                 else
                 {
@@ -78,6 +81,56 @@ namespace MyFan.WebPages.Fans
         private void getInfoSetList()
         {
             throw new NotImplementedException();
+        }
+
+        protected void cldFecha_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFecha.Text = cldFecha.SelectedDate.ToShortDateString();
+        }
+
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+            evento = (Evento)Session["Evento"];
+            if (evento != null)
+            {
+                if (chkConcierto.Enabled)
+                {
+                    evento.Concierto = true;
+                    evento.Set_list = txtSetList.Text;
+                }
+                else
+                {
+                    evento.Concierto = false;
+                    evento.Set_list = "";
+                }
+
+                evento.Titulo = txtTitulo.Text;
+                evento.Fecha = txtFecha.Text;
+                evento.Descripcion = txtContenido.Text;
+
+                eventoDAL = new EventoDAL();
+                if (eventoDAL.update(evento))
+                {
+                    lblResult.Text = "Evento actualizado correctamente.";
+                    lblResult.CssClass = "message-success";
+                }
+                else
+                {
+                    lblResult.Text = "Ha ocurrido un error al modificar el evento.";
+                    lblResult.CssClass = "message-error";
+                }
+            }
+            else
+            {
+                lblResult.Text = "Ha ocurrido un error al modificar el evento.";
+                lblResult.CssClass = "message-error";
+            }
+            
+        }
+
+        protected void chkConcierto_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSetList.Enabled = chkConcierto.Enabled;
         }
     }
 }

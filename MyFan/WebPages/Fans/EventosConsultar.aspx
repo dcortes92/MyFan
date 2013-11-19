@@ -12,7 +12,7 @@
         <asp:TextBox ID="txtTitulo" runat="server"></asp:TextBox><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtTitulo" CssClass="message-error">Debe especificar el título del evento.</asp:RequiredFieldValidator><br />
         <asp:Label ID="lblFecha" Text="Fecha" runat="server" CssClass="label"></asp:Label><br />    
-        <asp:Calendar ID="cldFecha" runat="server"></asp:Calendar>
+        <asp:Calendar ID="cldFecha" runat="server" OnSelectionChanged="cldFecha_SelectionChanged"></asp:Calendar>
         <asp:TextBox ID="txtFecha" runat="server" Enabled="false"></asp:TextBox><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" Text="Debe especificar la fecha del evento." ControlToValidate="txtFecha" CssClass="message-error"></asp:RequiredFieldValidator>
     </div>
@@ -22,7 +22,7 @@
         <asp:Label ID="lblCiudad" runat="server" Text="Ubicación" CssClass="label"></asp:Label><br />
         <asp:TextBox ID="txtCiudad" Enabled="false" runat="server"></asp:TextBox><br /><br />
         <asp:Label ID="lblConcierto" runat="server" CssClass="label" Text="¿Es Concierto?"></asp:Label>&nbsp;
-        <asp:CheckBox ID="chkConcierto" runat="server" /><br /><br />
+        <asp:CheckBox ID="chkConcierto" runat="server" AutoPostBack="True" OnCheckedChanged="chkConcierto_CheckedChanged" /><br /><br />
         <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion" CssClass="label"></asp:Label><br />
         <asp:TextBox ID="txtContenido" runat="server" TextMode="MultiLine"></asp:TextBox><br />
         <asp:Label ID="lblSetList" runat="server" CssClass="label" Text="SetList"></asp:Label><br />
@@ -30,6 +30,6 @@
         <hr />
     </div>
 
-    <asp:Button ID="btnActualizar" runat="server" Text="Actualizar Información" /><br />
+    <asp:Button ID="btnActualizar" runat="server" Text="Actualizar Información" OnClick="btnActualizar_Click" /><br />
     <asp:Label ID="lblResult" runat="server" CssClass="message-success"></asp:Label>
 </asp:Content>

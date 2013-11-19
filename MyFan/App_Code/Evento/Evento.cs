@@ -73,13 +73,14 @@ namespace MyFan.App_Code.Evento
             set { id_ciudad_fk = value; }
         }
 
-        private int id_set_list_fk;
+        private String set_list;
         /// <summary>
-        /// Gets the id of the set list. This field cannot be set.
+        /// Gets or sets the content of the set list.
         /// </summary>
-        public int Id_set_list_fk
+        public String Set_list
         {
-            get { return id_set_list_fk; }
+            get { return set_list; }
+            set { set_list = value; }
         }
 
         private int id_fanatico_fk;
@@ -116,7 +117,7 @@ namespace MyFan.App_Code.Evento
             this.fecha = fecha;
             this.concierto = concierto;
             this.id_ciudad_fk = id_ciudad_fk;
-            this.id_set_list_fk = 0;
+            this.set_list = "";
             this.id_fanatico_fk = id_fanatico_fk;
         }
 
@@ -133,9 +134,9 @@ namespace MyFan.App_Code.Evento
             concierto = bool.Parse(reader[4].ToString());
             id_ciudad_fk = int.Parse(reader[5].ToString());
             if (reader.IsDBNull(6))
-                id_set_list_fk = 0;
+                set_list = "";
             else
-                id_set_list_fk = int.Parse(reader[6].ToString());
+                set_list = reader[6].ToString();
             id_fanatico_fk = int.Parse(reader[7].ToString());
         }
 
