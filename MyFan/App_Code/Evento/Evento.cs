@@ -107,17 +107,16 @@ namespace MyFan.App_Code.Evento
         /// <param name="fecha"></param>
         /// <param name="concierto"></param>
         /// <param name="id_ciudad_fk"></param>
-        /// <param name="id_set_list_fk"></param>
         /// <param name="id_fanatico_fk"></param>
         public Evento(String titulo, String descripcion, String fecha, bool concierto,
-            int id_ciudad_fk, int id_set_list_fk, int id_fanatico_fk)
+            int id_ciudad_fk, int id_fanatico_fk)
         {
             this.titulo = titulo;
             this.descripcion = descripcion;
             this.fecha = fecha;
             this.concierto = concierto;
             this.id_ciudad_fk = id_ciudad_fk;
-            this.id_set_list_fk = id_set_list_fk;
+            this.id_set_list_fk = 0;
             this.id_fanatico_fk = id_fanatico_fk;
         }
 

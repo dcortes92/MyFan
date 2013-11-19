@@ -93,7 +93,7 @@ namespace MyFan.App_Code.Fanatico
                     ciudades = new List<MyListItem>();
                     while (reader.Read())
                     {
-                        ciudades.Add(new MyListItem(reader[1].ToString(), reader[0].ToString()));
+                        ciudades.Add(new MyListItem(reader[2].ToString(), reader[0].ToString()));
                     }
                 }
             }

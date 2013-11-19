@@ -36,12 +36,14 @@ namespace MyFan.App_Code.Evento
             int id_set_list_fk;
 
             id_set_list_fk = evento.Id_set_list_fk; //Stores de id of the set list.
+            String descripcion = evento.Descripcion;
 
             if (connection.openConnection())
             {
                 obj = connection.executeStoredProcedure("EventosAdd",
                     new SqlParameter("@titulo", evento.Titulo),
-                    new SqlParameter("@descipcion", evento.Descripcion),
+                    // if description is empty insert NULL
+                    new SqlParameter("@descripcion", descripcion == "" ? (Object) DBNull.Value : descripcion),
                     new SqlParameter("@fecha", evento.Fecha),
                     new SqlParameter("@concierto", evento.Concierto),
                     new SqlParameter("@id_ciudad_fk", evento.Id_ciudad_fk),
