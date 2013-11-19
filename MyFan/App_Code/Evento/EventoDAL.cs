@@ -22,7 +22,27 @@ namespace MyFan.App_Code.Evento
         /// <returns></returns>
         public Evento get(int id_evento_pk)
         {
-            throw new NotImplementedException();
+            Evento evento = null;
+            connection = new Connection();
+            if (connection.openConnection())
+            {
+                obj = connection.executeStoredProcedure("EventosGetById",
+                    new SqlParameter("@id_evento_pk", id_evento_pk));
+
+                if (obj != null)
+                {
+                    if (obj.GetType() == typeof(SqlDataReader))
+                    {
+                        reader = (SqlDataReader)obj;
+                        if (reader.Read())
+                        {
+                            evento = new Evento(reader);
+                        }
+                    }
+                }
+                connection.closeConnection();
+            }
+            return evento;
         }
 
         /// <summary>

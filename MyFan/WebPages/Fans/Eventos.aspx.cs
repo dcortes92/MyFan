@@ -15,13 +15,10 @@ namespace MyFan.WebPages.Fans
     public partial class Eventos : System.Web.UI.Page
     {
         private Usuario usuario;
-        private UsuarioDAL usuarioDAL;
         private Fan fan;
-        private FanaticoDAL fanaticoDAL;
         private CiudadDAL ciudadDAL;
-        private Ciudad ciudad;
-        private Evento evento;
         private EventoDAL eventoDAL;
+        String res;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -66,7 +63,7 @@ namespace MyFan.WebPages.Fans
                 table += "<table><tr><td>T&iacute;tulo Evento</td><td>Descripci&oacute;n</td></tr>";
                 for (int i = 0; i < eventos.Count(); i++)
                 {
-                    table += "<tr><td><a href='/WebPages/Fans/EventosConsultar.aspx?Id=" + eventos[i].Id_evento_pk + "'>"
+                    table += "<tr><td><a href='/WebPages/Fans/EventosConsultar.aspx?Id=" + eventos[i].Id_evento_pk + "&City="+res+"'>"
                         + eventos[i].Titulo + "</a></td><td>" + eventos[i].Descripcion + "</td></tr>";
                 }
                 table += "</table></div>";
@@ -85,7 +82,7 @@ namespace MyFan.WebPages.Fans
         private void getRegion()
         {
             ciudadDAL = new CiudadDAL();
-            String res = ciudadDAL.getCiudadPorId(fan.Id_ciudad_fk);
+            res = ciudadDAL.getCiudadPorId(fan.Id_ciudad_fk);
             if (res != "")
             {
                 lblRegion.Text = "Mostrando eventos en " + res + ". <a href='/Account/Manage.aspx'>Cambiar ubicaci&oacute;n</a>";

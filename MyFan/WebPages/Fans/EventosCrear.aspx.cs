@@ -15,11 +15,8 @@ namespace MyFan.WebPages.Fans
     public partial class AgregarEvento : System.Web.UI.Page
     {
         private Usuario usuario;
-        private UsuarioDAL usuarioDAL;
         private Fan fan;
-        private FanaticoDAL fanaticoDAL;
         private CiudadDAL ciudadDAL;
-        private Ciudad ciudad;
         private Evento evento;
         private EventoDAL eventoDAL;
 
