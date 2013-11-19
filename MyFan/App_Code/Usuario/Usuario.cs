@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using MyFan.App_Code.Negocio;
+using System.Web.Script.Serialization;
 
 namespace MyFan.App_Code.Usuario
 {
     /// <summary>
     /// Manages the user account of the fan.
     /// </summary>
-    public class Usuario
+    public class Usuario : JSon
     {
         private int id_usuario_pk;
         private String nombre_usuario;
@@ -43,6 +45,14 @@ namespace MyFan.App_Code.Usuario
             this.contrasenia = contrasenia;
             this.correo_electronico = correo_electronico;
             this.fecha_creacion = fecha_creacion;
+        }
+
+        /// <summary>
+        /// Constructor vacío se ocupa cuando se deserializa un JSon a este objeto.
+        /// </summary>
+        public Usuario()
+        {
+
         }
 
         /// <summary>
@@ -88,6 +98,15 @@ namespace MyFan.App_Code.Usuario
         {
             get { return fecha_creacion; }
             set { this.fecha_creacion = value; }
+        }
+
+        /// <summary>
+        /// Médoto implementado de la interface JSon para convertir el objeto a una cadena de caracteres.
+        /// </summary>
+        /// <returns>Cadena de caracteres JSon con la información del objeto</returns>
+        public String toJSon()
+        {
+            return new JavaScriptSerializer().Serialize(this);
         }
     }
 }

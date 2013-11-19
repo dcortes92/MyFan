@@ -41,7 +41,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">su logotipo aquí</a>
+                    <a runat="server" href="/WebPages/Default.aspx">su logotipo aquí</a>
                 </p>
             </div>
             <div class="float-right">
@@ -74,6 +74,7 @@
                     <div id='cssmenu'>
                         <ul>
                            <li><a href="/WebPages/Default"><span>Inicio</span></a></li>
+                           <li><a href="/WebPages/Fan/Noticias.aspx"><span>Noticias</span></a></li>
                            <li class='has-sub'><a href="/WebPages/Fan/Artistas.aspx"><span>Artistas</span></a>
                               <ul>
                                  <li><a href="/WebPages/Fan/ArtistasSiguiendo.aspx"><span>Siguiendo</span></a></li>

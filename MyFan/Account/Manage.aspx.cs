@@ -31,7 +31,7 @@ namespace MyFan.Account
                 lblMemberSince.Text = "Unido el " + usuario.Fecha_Creacion;
                 if (fan.Genero == null)
                 {
-                    ddlGender.SelectedValue = "0";
+                    ddlGender.SelectedValue = "2";
                 }
                 else if (fan.Genero == true)
                 {
@@ -39,7 +39,7 @@ namespace MyFan.Account
                 }
                 else
                 {
-                    ddlGender.SelectedValue = "2";
+                    ddlGender.SelectedValue = "0";
                 }
 
                 if (fan.Fecha_Nacimiento != "")
@@ -55,16 +55,17 @@ namespace MyFan.Account
                 {
                     ddlPais.SelectedIndex = fan.Id_pais_pk - 1;
                     populateddlCiudadLoad();
-                    ddlCiudad.SelectedIndex = fan.Id_ciudad_fk;
+                    ddlCiudad.SelectedIndex = fan.Id_ciudad_fk - 1;
                 }
             }
-
+            
         }
 
         
         protected void btnUpdateInfo_Click(object sender, EventArgs e)
         {
             fecha = new Fecha();
+            int genero = 0;
             String nueva_fecha_nacimiento = fecha.contriur(ddlDia.SelectedValue, ddlMes.SelectedValue, ddlAnio.SelectedValue);
             if (nueva_fecha_nacimiento != "")
             {
@@ -76,7 +77,7 @@ namespace MyFan.Account
             fan.Nombre = txtName.Text;
             fan.Apellido1 = txtLastName1.Text;
             fan.Apellido2 = txtLastName2.Text;
-            fan.Genero = ddlGender.SelectedValue == "1" ? false:true ;
+            fan.Genero = ddlGender.SelectedValue == "1" ? true:false ;
             fan.Id_ciudad_fk = int.Parse(ddlCiudad.SelectedValue);
 
             Session["Fan"] = fan;
@@ -85,9 +86,16 @@ namespace MyFan.Account
             usuarioDAL = new UsuarioDAL();
             fanaticoDAL = new FanaticoDAL();
 
+            genero = int.Parse(ddlGender.SelectedValue);
+
+            if (genero == 2)
+            {
+                genero = -1;
+            }
+
             if (usuarioDAL.update(usuario.Id_usuario_pk, usuario.Nombre_Usuario, usuario.Correo_Electronico))
             {
-                if(fanaticoDAL.update(fan.Nombre, fan.Apellido1, fan.Apellido2, int.Parse(ddlGender.SelectedValue), nueva_fecha_nacimiento, fan.Id_ciudad_fk, usuario.Id_usuario_pk))
+                if(fanaticoDAL.update(fan.Nombre, fan.Apellido1, fan.Apellido2, genero, nueva_fecha_nacimiento, fan.Id_ciudad_fk, usuario.Id_usuario_pk))
                 {
                     lblResult.Text = "Información actualizada correctamente.";
                 }
@@ -132,7 +140,7 @@ namespace MyFan.Account
         {
             ddlCiudad.Items.Clear();
             fanaticoDAL = new FanaticoDAL();
-            List<MyListItem> ciudades = fanaticoDAL.getCiudades(fan.Id_pais_pk - 1);
+            List<MyListItem> ciudades = fanaticoDAL.getCiudades(fan.Id_pais_pk);
             for (int i = 0; i < ciudades.Count(); i++)
             {
                 ListItem item = new ListItem();

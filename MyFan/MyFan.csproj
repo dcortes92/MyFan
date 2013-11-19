@@ -248,9 +248,12 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Evento\Evento.cs" />
     <Compile Include="App_Code\Fanatico\Fanatico.cs" />
     <Compile Include="App_Code\Fanatico\FanaticoDAL.cs" />
+    <Compile Include="App_Code\Negocio\Deserializer.cs" />
     <Compile Include="App_Code\Negocio\Fecha.cs" />
+    <Compile Include="App_Code\Negocio\JSon.cs" />
     <Compile Include="App_Code\Negocio\MyListItem.cs" />
     <Compile Include="App_Code\Usuario\Usuario.cs" />
     <Compile Include="App_Code\Usuario\UsuarioDAL.cs" />
@@ -391,7 +394,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\Artista\" />
-    <Folder Include="App_Code\Evento\" />
+    <Folder Include="App_Code\Ubicacion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
