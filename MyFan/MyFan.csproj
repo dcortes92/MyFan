@@ -262,6 +262,7 @@
     <Compile Include="App_Code\Negocio\Fecha.cs" />
     <Compile Include="App_Code\Negocio\JSon.cs" />
     <Compile Include="App_Code\Negocio\MyListItem.cs" />
+    <Compile Include="App_Code\Twitter\TwitterClient.cs" />
     <Compile Include="App_Code\Ubicacion\Ciudad.cs" />
     <Compile Include="App_Code\Ubicacion\CiudadDAL.cs" />
     <Compile Include="App_Code\Usuario\Usuario.cs" />

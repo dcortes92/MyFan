@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="ConnectionTests\TestConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TwitterTests\TestTwitter.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="UsuarioTests\TestUsuario.cs" />
   </ItemGroup>
