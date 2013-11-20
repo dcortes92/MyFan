@@ -5,5 +5,8 @@
         <h1><%: Title %>.</h1>
         <h2>Fotograf&iacute;as de los Conciertos</h2>
     </hgroup>
+    <asp:Button ID="Autenticar" runat="server" Text="Autenticar" OnClick="Autenticar_Click" />
+    <br />
+    <asp:Label ID="lblGalerias" runat="server"></asp:Label>
 
 </asp:Content>
