@@ -54,6 +54,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -130,6 +132,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\MyMusicCenterService\configuration91.svcinfo" />
+    <None Include="Service References\MyMusicCenterService\configuration.svcinfo" />
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getArtistByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.helloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getArtistsByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.updateFollowersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\MyMusicCenterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="WebPages\About.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
@@ -254,6 +274,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Artista\Artist.cs" />
+    <Compile Include="App_Code\Artista\ArtistProxy.cs" />
     <Compile Include="App_Code\Evento\Evento.cs" />
     <Compile Include="App_Code\Evento\EventoDAL.cs" />
     <Compile Include="App_Code\Fanatico\Fanatico.cs" />
@@ -270,6 +291,11 @@
     <Compile Include="App_Code\Usuario\UsuarioDAL.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="Service References\MyMusicCenterService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="WebPages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,12 +429,15 @@
       <DependentUpon>Recomendaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\MyMusicCenterService\MyMusicCenterWS.wsdl" />
+    <None Include="Service References\MyMusicCenterService\MyMusicCenterWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -424,6 +453,9 @@
       <Project>{65f1ba44-8d4c-4d51-97b5-8d41adc93bc2}</Project>
       <Name>WebApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MyMusicCenterService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

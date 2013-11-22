@@ -75,7 +75,7 @@
                         <ul>
                            <li><a href="/WebPages/Default"><span>Inicio</span></a></li>
                            <li><a href="/WebPages/Fans/Noticias.aspx"><span>Noticias</span></a></li>
-                           <li class='has-sub'><a href="/WebPages/Fan/Artistas.aspx"><span>Artistas</span></a>
+                           <li class='has-sub'><a href="/WebPages/Fans/Artistas.aspx"><span>Artistas</span></a>
                               <ul>
                                  <li><a href="/WebPages/Fans/ArtistasSiguiendo.aspx"><span>Siguiendo</span></a></li>
                                  <li class='last'><a href="/WebPages/Fans/ArtistasConsultar.aspx"><span>Consultar Artista</span></a></li>
