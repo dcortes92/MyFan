@@ -253,6 +253,7 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Artista\Artist.cs" />
     <Compile Include="App_Code\Evento\Evento.cs" />
     <Compile Include="App_Code\Evento\EventoDAL.cs" />
     <Compile Include="App_Code\Fanatico\Fanatico.cs" />
@@ -402,9 +403,7 @@
       <DependentUpon>Recomendaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\Artista\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
