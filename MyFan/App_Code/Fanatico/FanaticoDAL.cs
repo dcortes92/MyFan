@@ -135,5 +135,39 @@ namespace MyFan.App_Code.Fanatico
             }
             return retorno;
         }
+
+        /// <summary>
+        /// Gets the ids of the artists that a fan follows. This is used to load
+        /// the news of those artists and to check if a fan can unfollow an artist.
+        /// </summary>
+        /// <param name="id_fan">The id of the fan.</param>
+        /// <returns>An array with the list of all the ids.</returns>
+        public List<int> getArtistsFollowing(int id_fan)
+        {
+            List<int> retorno = null;
+
+            connection = new Connection();
+            if (connection.openConnection())
+            {
+                obj = connection.executeStoredProcedure("FanaticosGetArtists",
+                    new SqlParameter("@id_fan", id_fan));
+
+                if (obj != null)
+                {
+                    if (obj.GetType() == typeof(SqlDataReader))
+                    {
+                        reader = (SqlDataReader)obj;
+                        retorno = new List<int>();
+                        while (reader.Read())
+                        {
+                            retorno.Add(int.Parse(reader[0].ToString()));
+                        }
+                    }
+                }
+                connection.closeConnection();
+            }
+
+            return retorno;
+        }
     }
 }

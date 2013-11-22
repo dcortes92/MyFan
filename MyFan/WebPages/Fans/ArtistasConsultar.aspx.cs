@@ -13,10 +13,13 @@ namespace MyFan.WebPages.Fans
     public partial class ArtistasConsultar : System.Web.UI.Page
     {
         private Fan fan;
+        private FanaticoDAL fanaticoDAL;
         private Usuario usuario;
         private int Id;
         private Artist artist;
         private ArtistProxy artistProxy;
+        private List<int> artistsFollowing;
+        private int action;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +30,14 @@ namespace MyFan.WebPages.Fans
 
             if (!IsPostBack)
             {
+                if (fan != null)
+                {
+                    getArtistsFollowing();
+                }
+                else
+                {
+                    lblError.Text = "No se pudieron cargar los artistas que sigues. Intenta iniciar sesión nuevamente.";
+                }
                 if (temp != null)
                 {
                     Id = int.Parse(temp);
@@ -40,6 +51,17 @@ namespace MyFan.WebPages.Fans
             }
         }
 
+
+        /// <summary>
+        /// Gets the ids of the artists a fan is already following.
+        /// </summary>
+        private void getArtistsFollowing()
+        {
+            fanaticoDAL = new FanaticoDAL();
+            artistsFollowing = fanaticoDAL.getArtistsFollowing(fan.Id_fanatico_pk);
+            Session["Following"] = artistsFollowing;
+        }
+
         /// <summary>
         /// Gets the information of an artist given the parameter.
         /// </summary>
@@ -51,6 +73,7 @@ namespace MyFan.WebPages.Fans
             lstMembers.Items.Clear();
             if (artist != null)
             {
+                /*Get the info of the artist.*/
                 Title = artist.Artistname;
                 lblArtistFollowers.Text = artist.Followers + "";                
                 lblArtistDate.Text = artist.CreationYear + "";
@@ -62,6 +85,18 @@ namespace MyFan.WebPages.Fans
                     for (int i = 0; i < artist.Members.Count; i++)
                     {
                         lstMembers.Items.Add(new ListItem(artist.Members[i].ToString()));
+                    }
+                }
+
+                /*Check if the fan already follows the user*/
+                artistsFollowing = (List<int>)Session["Following"];
+                if (artistsFollowing != null)
+                {
+                    if (artistsFollowing.Contains(artist.Id))
+                    {
+                        btnFollow.Text = "Dejar de seguir";
+                        action = -1;
+                        Session["Action"] = action;
                     }
                 }
                 
@@ -77,7 +112,17 @@ namespace MyFan.WebPages.Fans
             artist = (Artist)Session["Artist"];
             fan = (Fan)Session["Fan"];
             usuario = (Usuario)Session["Usuario"];
-            int action = 1;
+            
+
+            /* No action read */
+            if (Session["Action"] == null)
+            {
+                action = 1; // Follow
+            }
+            else
+            {
+                action = (int)Session["Action"];
+            }
 
             if (artist == null || fan == null || usuario == null)
             {
@@ -86,14 +131,29 @@ namespace MyFan.WebPages.Fans
             else
             {
                 artistProxy = new ArtistProxy();
-                if (artistProxy.follow(action, usuario, fan, artist) == 1)
+                if (action == 1) //follow or unfollow
                 {
-                    artist.Followers += action;
-                    btnFollow.Text = "Siguiendo";
+                    if (artistProxy.follow(usuario, fan, artist) == 1)
+                    {
+                        artist.Followers += action;
+                        btnFollow.Text = "Dejar de Seguir";
+                    }
+                    else
+                    {
+                        lblError.Text = "No se pudo seguir al artista.";
+                    }
                 }
                 else
                 {
-                    lblError.Text = "No se pudo seguir al artista.";
+                    if (artistProxy.unfollow(usuario, fan, artist) == 1)
+                    {
+                        artist.Followers -= action;
+                        btnFollow.Text = "Seguir";
+                    }
+                    else
+                    {
+                        lblError.Text = "No se pudo dejar de seguir al artista.";
+                    }
                 }
             }
         }
