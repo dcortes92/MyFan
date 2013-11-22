@@ -93,7 +93,7 @@ namespace MyFan.WebPages.Fans
             evento = (Evento)Session["Evento"];
             if (evento != null)
             {
-                if (chkConcierto.Enabled)
+                if (chkConcierto.Checked)
                 {
                     evento.Concierto = true;
                     evento.Set_list = txtSetList.Text;
@@ -130,7 +130,7 @@ namespace MyFan.WebPages.Fans
 
         protected void chkConcierto_CheckedChanged(object sender, EventArgs e)
         {
-            txtSetList.Enabled = chkConcierto.Enabled;
+            txtSetList.Enabled = !txtSetList.Enabled;
         }
     }
 }

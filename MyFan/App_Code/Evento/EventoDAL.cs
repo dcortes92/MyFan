@@ -118,6 +118,7 @@ namespace MyFan.App_Code.Evento
             connection = new Connection();
             if (connection.openConnection())
             {
+                String set_list = evento.Set_list;
                 obj = connection.executeStoredProcedure("EventosUpdate",
                     new SqlParameter("@id_evento_pk", evento.Id_evento_pk),
                     new SqlParameter("@titulo", evento.Titulo),
@@ -125,7 +126,7 @@ namespace MyFan.App_Code.Evento
                     new SqlParameter("@fecha", evento.Fecha),
                     new SqlParameter("@concierto", evento.Concierto),
                     new SqlParameter("@id_ciudad_fk", evento.Id_ciudad_fk),
-                    new SqlParameter("@set_list", evento.Set_list),
+                    new SqlParameter("@set_list", set_list != "" ? set_list : (Object) DBNull.Value),
                     new SqlParameter("@id_fanatico_fk", evento.Id_fanatico_fk));
 
                 if (obj != null)
