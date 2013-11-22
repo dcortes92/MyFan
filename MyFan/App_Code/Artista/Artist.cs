@@ -85,6 +85,17 @@ namespace MyFan.App_Code.Artista
             set { followers = value; }
         }
 
+        private MusicalGenre musicalGenre;
+        /// <summary>
+        /// Gets or sets the Musical Genre of an artist.
+        /// </summary>
+        public MusicalGenre MusicalGenre
+        {
+            get { return musicalGenre; }
+            set { musicalGenre = value; }
+        }
+
+
         /// <summary>
         /// Empty constructor used when the object is parsed from a JSon string.
         /// </summary>

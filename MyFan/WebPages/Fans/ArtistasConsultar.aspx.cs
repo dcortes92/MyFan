@@ -55,6 +55,7 @@ namespace MyFan.WebPages.Fans
                 lblArtistFollowers.Text = artist.Followers + "";                
                 lblArtistDate.Text = artist.CreationYear + "";
                 txtBio.Text = artist.Biography;
+                lblArtistGenre.Text = artist.MusicalGenre.Name;
 
                 if (artist.Members != null)
                 {
@@ -76,6 +77,7 @@ namespace MyFan.WebPages.Fans
             artist = (Artist)Session["Artist"];
             fan = (Fan)Session["Fan"];
             usuario = (Usuario)Session["Usuario"];
+            int action = 1;
 
             if (artist == null || fan == null || usuario == null)
             {
@@ -84,13 +86,14 @@ namespace MyFan.WebPages.Fans
             else
             {
                 artistProxy = new ArtistProxy();
-                if (artistProxy.follow(1, usuario, fan, artist) == 1)
+                if (artistProxy.follow(action, usuario, fan, artist) == 1)
                 {
+                    artist.Followers += action;
                     btnFollow.Text = "Siguiendo";
                 }
                 else
                 {
-                    lblError.Text = "No se pudo seguir al artista."
+                    lblError.Text = "No se pudo seguir al artista.";
                 }
             }
         }

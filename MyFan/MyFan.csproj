@@ -146,6 +146,12 @@
     <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.updateFollowersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getNewsByArtistIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getNewsByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\MyMusicCenterService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -283,6 +289,7 @@
     <Compile Include="App_Code\Negocio\Deserializer.cs" />
     <Compile Include="App_Code\Negocio\Fecha.cs" />
     <Compile Include="App_Code\Negocio\JSon.cs" />
+    <Compile Include="App_Code\Negocio\MusicalGenre.cs" />
     <Compile Include="App_Code\Negocio\MyListItem.cs" />
     <Compile Include="App_Code\Twitter\TwitterClient.cs" />
     <Compile Include="App_Code\Ubicacion\Ciudad.cs" />

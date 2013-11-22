@@ -130,6 +130,15 @@ namespace MyFan.WebPages.Fans {
         protected global::System.Web.UI.WebControls.TextBox txtBio;
         
         /// <summary>
+        /// Control lblArtistDiscographyText.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArtistDiscographyText;
+        
+        /// <summary>
         /// Control lblArtistDiscography.
         /// </summary>
         /// <remarks>

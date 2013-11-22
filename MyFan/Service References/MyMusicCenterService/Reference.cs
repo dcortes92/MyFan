@@ -16,18 +16,32 @@ namespace MyFan.MyMusicCenterService {
     public interface MyMusicCenterWS {
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistsByNameRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistsByNameResponse")]
-        MyFan.MyMusicCenterService.getArtistsByNameResponse getArtistsByName(MyFan.MyMusicCenterService.getArtistsByNameRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistsByNameRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistsByNameResponse")]
-        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistsByNameResponse> getArtistsByNameAsync(MyFan.MyMusicCenterService.getArtistsByNameRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/helloRequest", ReplyAction="http://Proxy/MyMusicCenterWS/helloResponse")]
         MyFan.MyMusicCenterService.helloResponse hello(MyFan.MyMusicCenterService.helloRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/helloRequest", ReplyAction="http://Proxy/MyMusicCenterWS/helloResponse")]
         System.Threading.Tasks.Task<MyFan.MyMusicCenterService.helloResponse> helloAsync(MyFan.MyMusicCenterService.helloRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento return del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getNewsByIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getNewsByIdResponse")]
+        MyFan.MyMusicCenterService.getNewsByIdResponse getNewsById(MyFan.MyMusicCenterService.getNewsByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getNewsByIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getNewsByIdResponse")]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getNewsByIdResponse> getNewsByIdAsync(MyFan.MyMusicCenterService.getNewsByIdRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento return del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistByIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistByIdResponse")]
+        MyFan.MyMusicCenterService.getArtistByIdResponse getArtistById(MyFan.MyMusicCenterService.getArtistByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistByIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistByIdResponse")]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistByIdResponse> getArtistByIdAsync(MyFan.MyMusicCenterService.getArtistByIdRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistsByNameRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistsByNameResponse")]
+        MyFan.MyMusicCenterService.getArtistsByNameResponse getArtistsByName(MyFan.MyMusicCenterService.getArtistsByNameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistsByNameRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistsByNameResponse")]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistsByNameResponse> getArtistsByNameAsync(MyFan.MyMusicCenterService.getArtistsByNameRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de partes de mensaje () no coincide con el valor predeterminado (http://Proxy/).
         [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/updateFollowersRequest", ReplyAction="http://Proxy/MyMusicCenterWS/updateFollowersResponse")]
@@ -38,79 +52,11 @@ namespace MyFan.MyMusicCenterService {
         System.Threading.Tasks.Task<MyFan.MyMusicCenterService.updateFollowersResponse> updateFollowersAsync(MyFan.MyMusicCenterService.updateFollowersRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento return del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistByIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistByIdResponse")]
-        MyFan.MyMusicCenterService.getArtistByIdResponse getArtistById(MyFan.MyMusicCenterService.getArtistByIdRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getNewsByArtistIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getNewsByArtistIdResponse")]
+        MyFan.MyMusicCenterService.getNewsByArtistIdResponse getNewsByArtistId(MyFan.MyMusicCenterService.getNewsByArtistIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getArtistByIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getArtistByIdResponse")]
-        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistByIdResponse> getArtistByIdAsync(MyFan.MyMusicCenterService.getArtistByIdRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getArtistsByNameRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getArtistsByName", Namespace="http://Proxy/", Order=0)]
-        public MyFan.MyMusicCenterService.getArtistsByNameRequestBody Body;
-        
-        public getArtistsByNameRequest() {
-        }
-        
-        public getArtistsByNameRequest(MyFan.MyMusicCenterService.getArtistsByNameRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class getArtistsByNameRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string name;
-        
-        public getArtistsByNameRequestBody() {
-        }
-        
-        public getArtistsByNameRequestBody(string name) {
-            this.name = name;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getArtistsByNameResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getArtistsByNameResponse", Namespace="http://Proxy/", Order=0)]
-        public MyFan.MyMusicCenterService.getArtistsByNameResponseBody Body;
-        
-        public getArtistsByNameResponse() {
-        }
-        
-        public getArtistsByNameResponse(MyFan.MyMusicCenterService.getArtistsByNameResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class getArtistsByNameResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public getArtistsByNameResponseBody() {
-        }
-        
-        public getArtistsByNameResponseBody(string @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://Proxy/MyMusicCenterWS/getNewsByArtistIdRequest", ReplyAction="http://Proxy/MyMusicCenterWS/getNewsByArtistIdResponse")]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getNewsByArtistIdResponse> getNewsByArtistIdAsync(MyFan.MyMusicCenterService.getNewsByArtistIdRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -184,37 +130,67 @@ namespace MyFan.MyMusicCenterService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="updateFollowers", WrapperNamespace="http://Proxy/", IsWrapped=true)]
-    public partial class updateFollowersRequest {
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getNewsByIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int id;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getNewsById", Namespace="http://Proxy/", Order=0)]
+        public MyFan.MyMusicCenterService.getNewsByIdRequestBody Body;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int follow;
-        
-        public updateFollowersRequest() {
+        public getNewsByIdRequest() {
         }
         
-        public updateFollowersRequest(int id, int follow) {
-            this.id = id;
-            this.follow = follow;
+        public getNewsByIdRequest(MyFan.MyMusicCenterService.getNewsByIdRequestBody Body) {
+            this.Body = Body;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="updateFollowersResponse", WrapperNamespace="http://Proxy/", IsWrapped=true)]
-    public partial class updateFollowersResponse {
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getNewsByIdRequestBody {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int @return;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
         
-        public updateFollowersResponse() {
+        public getNewsByIdRequestBody() {
         }
         
-        public updateFollowersResponse(int @return) {
+        public getNewsByIdRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getNewsByIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getNewsByIdResponse", Namespace="http://Proxy/", Order=0)]
+        public MyFan.MyMusicCenterService.getNewsByIdResponseBody Body;
+        
+        public getNewsByIdResponse() {
+        }
+        
+        public getNewsByIdResponse(MyFan.MyMusicCenterService.getNewsByIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getNewsByIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getNewsByIdResponseBody() {
+        }
+        
+        public getNewsByIdResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -287,6 +263,180 @@ namespace MyFan.MyMusicCenterService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getArtistsByNameRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getArtistsByName", Namespace="http://Proxy/", Order=0)]
+        public MyFan.MyMusicCenterService.getArtistsByNameRequestBody Body;
+        
+        public getArtistsByNameRequest() {
+        }
+        
+        public getArtistsByNameRequest(MyFan.MyMusicCenterService.getArtistsByNameRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getArtistsByNameRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string name;
+        
+        public getArtistsByNameRequestBody() {
+        }
+        
+        public getArtistsByNameRequestBody(string name) {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getArtistsByNameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getArtistsByNameResponse", Namespace="http://Proxy/", Order=0)]
+        public MyFan.MyMusicCenterService.getArtistsByNameResponseBody Body;
+        
+        public getArtistsByNameResponse() {
+        }
+        
+        public getArtistsByNameResponse(MyFan.MyMusicCenterService.getArtistsByNameResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getArtistsByNameResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getArtistsByNameResponseBody() {
+        }
+        
+        public getArtistsByNameResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateFollowers", WrapperNamespace="http://Proxy/", IsWrapped=true)]
+    public partial class updateFollowersRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public int follow;
+        
+        public updateFollowersRequest() {
+        }
+        
+        public updateFollowersRequest(int id, int follow) {
+            this.id = id;
+            this.follow = follow;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateFollowersResponse", WrapperNamespace="http://Proxy/", IsWrapped=true)]
+    public partial class updateFollowersResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int @return;
+        
+        public updateFollowersResponse() {
+        }
+        
+        public updateFollowersResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getNewsByArtistIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getNewsByArtistId", Namespace="http://Proxy/", Order=0)]
+        public MyFan.MyMusicCenterService.getNewsByArtistIdRequestBody Body;
+        
+        public getNewsByArtistIdRequest() {
+        }
+        
+        public getNewsByArtistIdRequest(MyFan.MyMusicCenterService.getNewsByArtistIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getNewsByArtistIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public getNewsByArtistIdRequestBody() {
+        }
+        
+        public getNewsByArtistIdRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getNewsByArtistIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getNewsByArtistIdResponse", Namespace="http://Proxy/", Order=0)]
+        public MyFan.MyMusicCenterService.getNewsByArtistIdResponseBody Body;
+        
+        public getNewsByArtistIdResponse() {
+        }
+        
+        public getNewsByArtistIdResponse(MyFan.MyMusicCenterService.getNewsByArtistIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getNewsByArtistIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getNewsByArtistIdResponseBody() {
+        }
+        
+        public getNewsByArtistIdResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface MyMusicCenterWSChannel : MyFan.MyMusicCenterService.MyMusicCenterWS, System.ServiceModel.IClientChannel {
     }
@@ -315,31 +465,6 @@ namespace MyFan.MyMusicCenterService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MyFan.MyMusicCenterService.getArtistsByNameResponse MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistsByName(MyFan.MyMusicCenterService.getArtistsByNameRequest request) {
-            return base.Channel.getArtistsByName(request);
-        }
-        
-        public string getArtistsByName(string name) {
-            MyFan.MyMusicCenterService.getArtistsByNameRequest inValue = new MyFan.MyMusicCenterService.getArtistsByNameRequest();
-            inValue.Body = new MyFan.MyMusicCenterService.getArtistsByNameRequestBody();
-            inValue.Body.name = name;
-            MyFan.MyMusicCenterService.getArtistsByNameResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistsByName(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistsByNameResponse> MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistsByNameAsync(MyFan.MyMusicCenterService.getArtistsByNameRequest request) {
-            return base.Channel.getArtistsByNameAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistsByNameResponse> getArtistsByNameAsync(string name) {
-            MyFan.MyMusicCenterService.getArtistsByNameRequest inValue = new MyFan.MyMusicCenterService.getArtistsByNameRequest();
-            inValue.Body = new MyFan.MyMusicCenterService.getArtistsByNameRequestBody();
-            inValue.Body.name = name;
-            return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistsByNameAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         MyFan.MyMusicCenterService.helloResponse MyFan.MyMusicCenterService.MyMusicCenterWS.hello(MyFan.MyMusicCenterService.helloRequest request) {
             return base.Channel.hello(request);
         }
@@ -362,6 +487,81 @@ namespace MyFan.MyMusicCenterService {
             inValue.Body = new MyFan.MyMusicCenterService.helloRequestBody();
             inValue.Body.name = name;
             return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).helloAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MyFan.MyMusicCenterService.getNewsByIdResponse MyFan.MyMusicCenterService.MyMusicCenterWS.getNewsById(MyFan.MyMusicCenterService.getNewsByIdRequest request) {
+            return base.Channel.getNewsById(request);
+        }
+        
+        public string getNewsById(int id) {
+            MyFan.MyMusicCenterService.getNewsByIdRequest inValue = new MyFan.MyMusicCenterService.getNewsByIdRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getNewsByIdRequestBody();
+            inValue.Body.id = id;
+            MyFan.MyMusicCenterService.getNewsByIdResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getNewsById(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getNewsByIdResponse> MyFan.MyMusicCenterService.MyMusicCenterWS.getNewsByIdAsync(MyFan.MyMusicCenterService.getNewsByIdRequest request) {
+            return base.Channel.getNewsByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getNewsByIdResponse> getNewsByIdAsync(int id) {
+            MyFan.MyMusicCenterService.getNewsByIdRequest inValue = new MyFan.MyMusicCenterService.getNewsByIdRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getNewsByIdRequestBody();
+            inValue.Body.id = id;
+            return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getNewsByIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MyFan.MyMusicCenterService.getArtistByIdResponse MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistById(MyFan.MyMusicCenterService.getArtistByIdRequest request) {
+            return base.Channel.getArtistById(request);
+        }
+        
+        public string getArtistById(int id) {
+            MyFan.MyMusicCenterService.getArtistByIdRequest inValue = new MyFan.MyMusicCenterService.getArtistByIdRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getArtistByIdRequestBody();
+            inValue.Body.id = id;
+            MyFan.MyMusicCenterService.getArtistByIdResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistById(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistByIdResponse> MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistByIdAsync(MyFan.MyMusicCenterService.getArtistByIdRequest request) {
+            return base.Channel.getArtistByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistByIdResponse> getArtistByIdAsync(int id) {
+            MyFan.MyMusicCenterService.getArtistByIdRequest inValue = new MyFan.MyMusicCenterService.getArtistByIdRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getArtistByIdRequestBody();
+            inValue.Body.id = id;
+            return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistByIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MyFan.MyMusicCenterService.getArtistsByNameResponse MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistsByName(MyFan.MyMusicCenterService.getArtistsByNameRequest request) {
+            return base.Channel.getArtistsByName(request);
+        }
+        
+        public string getArtistsByName(string name) {
+            MyFan.MyMusicCenterService.getArtistsByNameRequest inValue = new MyFan.MyMusicCenterService.getArtistsByNameRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getArtistsByNameRequestBody();
+            inValue.Body.name = name;
+            MyFan.MyMusicCenterService.getArtistsByNameResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistsByName(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistsByNameResponse> MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistsByNameAsync(MyFan.MyMusicCenterService.getArtistsByNameRequest request) {
+            return base.Channel.getArtistsByNameAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistsByNameResponse> getArtistsByNameAsync(string name) {
+            MyFan.MyMusicCenterService.getArtistsByNameRequest inValue = new MyFan.MyMusicCenterService.getArtistsByNameRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getArtistsByNameRequestBody();
+            inValue.Body.name = name;
+            return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistsByNameAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -390,28 +590,28 @@ namespace MyFan.MyMusicCenterService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MyFan.MyMusicCenterService.getArtistByIdResponse MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistById(MyFan.MyMusicCenterService.getArtistByIdRequest request) {
-            return base.Channel.getArtistById(request);
+        MyFan.MyMusicCenterService.getNewsByArtistIdResponse MyFan.MyMusicCenterService.MyMusicCenterWS.getNewsByArtistId(MyFan.MyMusicCenterService.getNewsByArtistIdRequest request) {
+            return base.Channel.getNewsByArtistId(request);
         }
         
-        public string getArtistById(int id) {
-            MyFan.MyMusicCenterService.getArtistByIdRequest inValue = new MyFan.MyMusicCenterService.getArtistByIdRequest();
-            inValue.Body = new MyFan.MyMusicCenterService.getArtistByIdRequestBody();
+        public string getNewsByArtistId(int id) {
+            MyFan.MyMusicCenterService.getNewsByArtistIdRequest inValue = new MyFan.MyMusicCenterService.getNewsByArtistIdRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getNewsByArtistIdRequestBody();
             inValue.Body.id = id;
-            MyFan.MyMusicCenterService.getArtistByIdResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistById(inValue);
+            MyFan.MyMusicCenterService.getNewsByArtistIdResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getNewsByArtistId(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistByIdResponse> MyFan.MyMusicCenterService.MyMusicCenterWS.getArtistByIdAsync(MyFan.MyMusicCenterService.getArtistByIdRequest request) {
-            return base.Channel.getArtistByIdAsync(request);
+        System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getNewsByArtistIdResponse> MyFan.MyMusicCenterService.MyMusicCenterWS.getNewsByArtistIdAsync(MyFan.MyMusicCenterService.getNewsByArtistIdRequest request) {
+            return base.Channel.getNewsByArtistIdAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getArtistByIdResponse> getArtistByIdAsync(int id) {
-            MyFan.MyMusicCenterService.getArtistByIdRequest inValue = new MyFan.MyMusicCenterService.getArtistByIdRequest();
-            inValue.Body = new MyFan.MyMusicCenterService.getArtistByIdRequestBody();
+        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.getNewsByArtistIdResponse> getNewsByArtistIdAsync(int id) {
+            MyFan.MyMusicCenterService.getNewsByArtistIdRequest inValue = new MyFan.MyMusicCenterService.getNewsByArtistIdRequest();
+            inValue.Body = new MyFan.MyMusicCenterService.getNewsByArtistIdRequestBody();
             inValue.Body.id = id;
-            return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getArtistByIdAsync(inValue);
+            return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).getNewsByArtistIdAsync(inValue);
         }
     }
 }

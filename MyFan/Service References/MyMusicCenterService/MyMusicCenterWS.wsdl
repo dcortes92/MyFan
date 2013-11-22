@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://192.168.1.103:8080/MyMusicCenterProj/MyMusicCenterWS?xsd=1" namespace="http://Proxy/" />
     </xsd:schema>
   </types>
-  <message name="getArtistsByName">
-    <part name="parameters" element="tns:getArtistsByName" />
-  </message>
-  <message name="getArtistsByNameResponse">
-    <part name="parameters" element="tns:getArtistsByNameResponse" />
-  </message>
   <message name="hello">
     <part name="parameters" element="tns:hello" />
   </message>
   <message name="helloResponse">
     <part name="parameters" element="tns:helloResponse" />
   </message>
-  <message name="updateFollowers">
-    <part name="parameters" element="tns:updateFollowers" />
+  <message name="getNewsById">
+    <part name="parameters" element="tns:getNewsById" />
   </message>
-  <message name="updateFollowersResponse">
-    <part name="parameters" element="tns:updateFollowersResponse" />
+  <message name="getNewsByIdResponse">
+    <part name="parameters" element="tns:getNewsByIdResponse" />
   </message>
   <message name="getArtistById">
     <part name="parameters" element="tns:getArtistById" />
@@ -29,27 +23,53 @@
   <message name="getArtistByIdResponse">
     <part name="parameters" element="tns:getArtistByIdResponse" />
   </message>
+  <message name="getArtistsByName">
+    <part name="parameters" element="tns:getArtistsByName" />
+  </message>
+  <message name="getArtistsByNameResponse">
+    <part name="parameters" element="tns:getArtistsByNameResponse" />
+  </message>
+  <message name="updateFollowers">
+    <part name="parameters" element="tns:updateFollowers" />
+  </message>
+  <message name="updateFollowersResponse">
+    <part name="parameters" element="tns:updateFollowersResponse" />
+  </message>
+  <message name="getNewsByArtistId">
+    <part name="parameters" element="tns:getNewsByArtistId" />
+  </message>
+  <message name="getNewsByArtistIdResponse">
+    <part name="parameters" element="tns:getNewsByArtistIdResponse" />
+  </message>
   <portType name="MyMusicCenterWS">
-    <operation name="getArtistsByName">
-      <input wsam:Action="http://Proxy/MyMusicCenterWS/getArtistsByNameRequest" message="tns:getArtistsByName" />
-      <output wsam:Action="http://Proxy/MyMusicCenterWS/getArtistsByNameResponse" message="tns:getArtistsByNameResponse" />
-    </operation>
     <operation name="hello">
       <input wsam:Action="http://Proxy/MyMusicCenterWS/helloRequest" message="tns:hello" />
       <output wsam:Action="http://Proxy/MyMusicCenterWS/helloResponse" message="tns:helloResponse" />
     </operation>
-    <operation name="updateFollowers">
-      <input wsam:Action="http://Proxy/MyMusicCenterWS/updateFollowersRequest" message="tns:updateFollowers" />
-      <output wsam:Action="http://Proxy/MyMusicCenterWS/updateFollowersResponse" message="tns:updateFollowersResponse" />
+    <operation name="getNewsById">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByIdRequest" message="tns:getNewsById" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByIdResponse" message="tns:getNewsByIdResponse" />
     </operation>
     <operation name="getArtistById">
       <input wsam:Action="http://Proxy/MyMusicCenterWS/getArtistByIdRequest" message="tns:getArtistById" />
       <output wsam:Action="http://Proxy/MyMusicCenterWS/getArtistByIdResponse" message="tns:getArtistByIdResponse" />
     </operation>
+    <operation name="getArtistsByName">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/getArtistsByNameRequest" message="tns:getArtistsByName" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/getArtistsByNameResponse" message="tns:getArtistsByNameResponse" />
+    </operation>
+    <operation name="updateFollowers">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/updateFollowersRequest" message="tns:updateFollowers" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/updateFollowersResponse" message="tns:updateFollowersResponse" />
+    </operation>
+    <operation name="getNewsByArtistId">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByArtistIdRequest" message="tns:getNewsByArtistId" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByArtistIdResponse" message="tns:getNewsByArtistIdResponse" />
+    </operation>
   </portType>
   <binding name="MyMusicCenterWSPortBinding" type="tns:MyMusicCenterWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="getArtistsByName">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -58,7 +78,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="getNewsById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getArtistById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getArtistsByName">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="getArtistById">
+    <operation name="getNewsByArtistId">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
