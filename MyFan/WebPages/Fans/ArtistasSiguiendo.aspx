@@ -5,5 +5,5 @@
         <h1><%: Title %>.</h1>
         <h2>Tus Artistas Favoritos</h2>
     </hgroup>
-
+    <asp:Label ID="lblArtistasSiguiendo" runat="server"></asp:Label>
 </asp:Content>

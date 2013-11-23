@@ -171,7 +171,7 @@ namespace MyFan.WebPages.Fans
                     if (artistProxy.follow(usuario, fan, artist) == 1)
                     {
                         artist.Followers += action;
-                        lblArtistFollowers.Text = artist.Followers+""
+                        lblArtistFollowers.Text = artist.Followers + "";
                         btnFollow.Text = "Dejar de Seguir";
                     }
                     else
