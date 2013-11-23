@@ -91,8 +91,8 @@
   </xs:complexType>
   <xs:complexType name="UpdateDiscRating">
     <xs:sequence>
+      <xs:element name="DiscId" type="xs:int" />
       <xs:element minOccurs="0" name="rating" type="xs:double" />
-      <xs:element name="comments" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="UpdateDiscRatingResponse">

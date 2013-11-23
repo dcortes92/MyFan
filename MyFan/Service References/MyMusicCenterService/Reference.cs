@@ -601,17 +601,17 @@ namespace MyFan.MyMusicCenterService {
     public partial class UpdateDiscRatingRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public double rating;
+        public int DiscId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int comments;
+        public double rating;
         
         public UpdateDiscRatingRequest() {
         }
         
-        public UpdateDiscRatingRequest(double rating, int comments) {
+        public UpdateDiscRatingRequest(int DiscId, double rating) {
+            this.DiscId = DiscId;
             this.rating = rating;
-            this.comments = comments;
         }
     }
     
@@ -857,10 +857,10 @@ namespace MyFan.MyMusicCenterService {
             return base.Channel.UpdateDiscRating(request);
         }
         
-        public void UpdateDiscRating(double rating, int comments) {
+        public void UpdateDiscRating(int DiscId, double rating) {
             MyFan.MyMusicCenterService.UpdateDiscRatingRequest inValue = new MyFan.MyMusicCenterService.UpdateDiscRatingRequest();
+            inValue.DiscId = DiscId;
             inValue.rating = rating;
-            inValue.comments = comments;
             MyFan.MyMusicCenterService.UpdateDiscRatingResponse retVal = ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).UpdateDiscRating(inValue);
         }
         
@@ -869,10 +869,10 @@ namespace MyFan.MyMusicCenterService {
             return base.Channel.UpdateDiscRatingAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.UpdateDiscRatingResponse> UpdateDiscRatingAsync(double rating, int comments) {
+        public System.Threading.Tasks.Task<MyFan.MyMusicCenterService.UpdateDiscRatingResponse> UpdateDiscRatingAsync(int DiscId, double rating) {
             MyFan.MyMusicCenterService.UpdateDiscRatingRequest inValue = new MyFan.MyMusicCenterService.UpdateDiscRatingRequest();
+            inValue.DiscId = DiscId;
             inValue.rating = rating;
-            inValue.comments = comments;
             return ((MyFan.MyMusicCenterService.MyMusicCenterWS)(this)).UpdateDiscRatingAsync(inValue);
         }
     }

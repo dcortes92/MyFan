@@ -52,17 +52,29 @@ namespace MyFan.App_Code.Comentario
             set { nombre_usuario = value; }
         }
 
+        private float calificacion;
+        /// <summary>
+        /// Gets or sets the Review.
+        /// </summary>
+        public float Calificacion
+        {
+            get { return calificacion; }
+            set { calificacion = value; }
+        }
+
+
         /// <summary>
         /// Constructor when a comment is submited.
         /// </summary>
         /// <param name="id_usuario_fk">The user id.</param>
         /// <param name="id_disco_fk">The disc id.</param>
         /// <param name="comentario_usuario">The content of the comment.</param>
-        public Comentario(int id_usuario_fk, int id_disco_fk, String comentario_usuario)
+        public Comentario(int id_usuario_fk, int id_disco_fk, String comentario_usuario, float calificacion)
         {
             this.id_usuario_fk = id_usuario_fk;
             this.id_disco_fk = id_disco_fk;
             this.comentario_usuario = comentario_usuario;
+            this.calificacion = calificacion;
         }
 
         /// <summary>

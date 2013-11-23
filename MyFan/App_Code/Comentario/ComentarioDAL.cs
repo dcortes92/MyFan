@@ -7,6 +7,7 @@ using MyFan.App_Code.Negocio;
 using MyFan.App_Data;
 using MyFan.MyMusicCenterService;
 using MyFan.App_Code.Twitter;
+using MyFan.App_Code.Disc;
 
 namespace MyFan.App_Code.Comentario
 {
@@ -23,20 +24,26 @@ namespace MyFan.App_Code.Comentario
         /// </summary>
         /// <param name="comentario">The comment object.</param>
         /// <returns>True if inserted successfully, false otherwise.</returns>
-        public bool add(Comentario comentario)
+        public float add(Comentario comentario)
         {
             connection = new Connection();
-            bool retorno = false;
+            float retorno = 0;
             if (connection.openConnection())
             {
                 obj = connection.executeStoredProcedure("ComentariosAdd",
                     new SqlParameter("@id_usuario_fk", comentario.Id_usuario_fk),
                     new SqlParameter("@id_disco_fk", comentario.Id_disco_fk),
-                    new SqlParameter("@comentario", comentario.Comentario_usuario));
+                    new SqlParameter("@comentario", comentario.Comentario_usuario),
+                    new SqlParameter("@calificacion", comentario.Calificacion));
 
                 if (obj != null)
                 {
-                    retorno = obj.GetType() == typeof(SqlDataReader);              
+                    if (obj.GetType() == typeof(SqlDataReader))
+                    {
+                        reader = (SqlDataReader)obj;
+                        reader.Read();
+                        retorno = float.Parse(reader[0].ToString());
+                    }
                 }
                 connection.closeConnection();
             }
@@ -79,12 +86,12 @@ namespace MyFan.App_Code.Comentario
         /// </summary>
         /// <param name="calificacion">Users rating</param>
         /// <param name="cantidad_comentarios">Number of comments, to obtain the average rating.</param>
-        public void send(int calificacion, int cantidad_comentarios, String usuario, String disco)
+        public void send(String usuario, Disc.Disc disco, float calificacion)
         {
             mmc = new MyMusicCenterWSClient();
-            mmc.UpdateDiscRating(calificacion, cantidad_comentarios);
+            mmc.UpdateDiscRating(disco.Id, calificacion);
             TwitterClient tc = new TwitterClient();
-            tc.tweet(usuario + " ha calificado " + disco + " con " + calificacion);
+            tc.tweet(usuario + " ha calificado " + disco.Title + " con " + calificacion);
         }
     }
 }
