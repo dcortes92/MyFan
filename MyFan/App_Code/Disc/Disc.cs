@@ -75,6 +75,16 @@ namespace MyFan.App_Code.Disc
         }
 
 
+        private Double rating;
+        /// <summary>
+        /// Gets or sets the rating of a disc.
+        /// </summary>
+        public Double Rating
+        {
+            get { return rating; }
+            set { rating = value; }
+        }
+
         private List<Song.Song> songs;
         /// <summary>
         /// Gets or sets the songs of a disc.
