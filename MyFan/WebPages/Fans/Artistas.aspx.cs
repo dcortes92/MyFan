@@ -23,28 +23,6 @@ namespace MyFan.WebPages.Fans
         protected void btnBuscarArtistas_Click(object sender, EventArgs e)
         {
             getArtistas();
-            /*int id = int.Parse(txtNombreArtista.Text); Obtener un artista2
-            artistDAL = new ArtistProxy();
-            artist = artistDAL.getById(id);
-
-            if (artist != null)
-            {
-                lblResultados.Text = artist.Artistname;
-            }*/
-
-            /*String name = txtNombreArtista.Text; Obtener muchos artistas
-            artistDAL = new ArtistProxy();
-            artists = artistDAL.getByName(name);
-            for (int i = 0; i < artists.Length; i++)
-            {
-                lblResultados.Text += artists[i].Artistname + "\n";
-            }*/
-
-            /*artistDAL = new ArtistProxy(); Follow unfollow
-            if (artistDAL.follow(8, -1) == 1)
-            {
-                lblResultados.Text = "Seguido correctamente";
-            }*/
         }
 
         public void getArtistas()
@@ -57,7 +35,7 @@ namespace MyFan.WebPages.Fans
 
             if (artists != null)
             {
-                table = "<div class='Events' style='overflow:auto;height:160px'>";
+                table = "<div class='Events' style='overflow:auto;height:160px;width:250px'>";
                 table += "<table><tr><td>Resultados</td></tr>";
 
                 for (int i = 0; i < artists.Length; i++)

@@ -152,6 +152,12 @@
     <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getNewsByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getDiscByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getDiscsByArtistIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\MyMusicCenterService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -232,6 +238,7 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
     <Content Include="WebPages\Fans\ArtistasConsultar.aspx" />
+    <Content Include="WebPages\Fans\ArtistasDisco.aspx" />
     <Content Include="WebPages\Fans\Eventos.aspx" />
     <Content Include="WebPages\Fans\EventosConsultar.aspx" />
     <Content Include="WebPages\Fans\EventosCrear.aspx" />
@@ -281,6 +288,8 @@
   <ItemGroup>
     <Compile Include="App_Code\Artista\Artist.cs" />
     <Compile Include="App_Code\Artista\ArtistProxy.cs" />
+    <Compile Include="App_Code\Disc\Disc.cs" />
+    <Compile Include="App_Code\Disc\DiscProxy.cs" />
     <Compile Include="App_Code\Evento\Evento.cs" />
     <Compile Include="App_Code\Evento\EventoDAL.cs" />
     <Compile Include="App_Code\Fanatico\Fanatico.cs" />
@@ -291,6 +300,9 @@
     <Compile Include="App_Code\Negocio\JSon.cs" />
     <Compile Include="App_Code\Negocio\MusicalGenre.cs" />
     <Compile Include="App_Code\Negocio\MyListItem.cs" />
+    <Compile Include="App_Code\Noticia\News.cs" />
+    <Compile Include="App_Code\Noticia\NewsProxy.cs" />
+    <Compile Include="App_Code\Song\Song.cs" />
     <Compile Include="App_Code\Twitter\TwitterClient.cs" />
     <Compile Include="App_Code\Ubicacion\Ciudad.cs" />
     <Compile Include="App_Code\Ubicacion\CiudadDAL.cs" />
@@ -378,6 +390,13 @@
     </Compile>
     <Compile Include="WebPages\Fans\ArtistasConsultar.aspx.designer.cs">
       <DependentUpon>ArtistasConsultar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\Fans\ArtistasDisco.aspx.cs">
+      <DependentUpon>ArtistasDisco.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Fans\ArtistasDisco.aspx.designer.cs">
+      <DependentUpon>ArtistasDisco.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPages\Fans\Eventos.aspx.cs">
       <DependentUpon>Eventos.aspx</DependentUpon>

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MyFan.App_Code.Fanatico;
 using MyFan.App_Code.Artista;
 using MyFan.App_Code.Usuario;
+using MyFan.App_Code.Disc;
 
 namespace MyFan.WebPages.Fans
 {
@@ -19,6 +20,7 @@ namespace MyFan.WebPages.Fans
         private Artist artist;
         private ArtistProxy artistProxy;
         private List<int> artistsFollowing;
+        private DiscProxy discProxy;
         private int action;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace MyFan.WebPages.Fans
                 {
                     Id = int.Parse(temp);
                     getInfoArtist();
+                    getDiscography();
                 }
                 else
                 {
@@ -104,6 +107,33 @@ namespace MyFan.WebPages.Fans
             else
             {
                 btnFollow.Enabled = false;
+            }
+        }
+
+        void getDiscography()
+        {
+            artist = (Artist)Session["Artist"];
+            if (artist != null)
+            {
+                String table = "";
+                discProxy = new DiscProxy();
+                Disc[] discography = discProxy.getByArtistId(artist.Id);
+                table = "<div class='Events' style='overflow:auto;height:160px;width:250px'>";
+                table += "<table><tr><td>Disco</td><td>A&ntilde;o</td></tr>";
+
+                for (int i = 0; i < discography.Length; i++)
+                {
+                    table += "<tr><td><a href='/WebPages/Fans/ArtistasDisco.aspx?Id=" + discography[i].Id + "'>"
+                        + discography[i].Title + "</a></td><td>" + discography[i].Year + "</td></tr>";
+                }
+
+                table += "</table></div>";
+
+                lblArtistDiscography.Text = table;
+            }
+            else
+            {
+                lblArtistDiscography.Text = "Artista no ha compartido discografía.";
             }
         }
 

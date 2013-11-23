@@ -4,6 +4,10 @@
   <xs:element name="getArtistByIdResponse" type="tns:getArtistByIdResponse" />
   <xs:element name="getArtistsByName" type="tns:getArtistsByName" />
   <xs:element name="getArtistsByNameResponse" type="tns:getArtistsByNameResponse" />
+  <xs:element name="getDiscById" type="tns:getDiscById" />
+  <xs:element name="getDiscByIdResponse" type="tns:getDiscByIdResponse" />
+  <xs:element name="getDiscsByArtistId" type="tns:getDiscsByArtistId" />
+  <xs:element name="getDiscsByArtistIdResponse" type="tns:getDiscsByArtistIdResponse" />
   <xs:element name="getNewsByArtistId" type="tns:getNewsByArtistId" />
   <xs:element name="getNewsByArtistIdResponse" type="tns:getNewsByArtistIdResponse" />
   <xs:element name="getNewsById" type="tns:getNewsById" />
@@ -71,6 +75,26 @@
   <xs:complexType name="updateFollowersResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDiscsByArtistId">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDiscsByArtistIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDiscById">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDiscByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
