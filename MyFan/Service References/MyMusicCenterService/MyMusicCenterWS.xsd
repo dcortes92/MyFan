@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://Proxy/" targetNamespace="http://Proxy/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UpdateDiscRating" type="tns:UpdateDiscRating" />
+  <xs:element name="UpdateDiscRatingResponse" type="tns:UpdateDiscRatingResponse" />
   <xs:element name="getArtistById" type="tns:getArtistById" />
   <xs:element name="getArtistByIdResponse" type="tns:getArtistByIdResponse" />
   <xs:element name="getArtistsByName" type="tns:getArtistsByName" />
@@ -66,6 +68,16 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="getDiscsByArtistId">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDiscsByArtistIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="updateFollowers">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
@@ -77,15 +89,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="getDiscsByArtistId">
+  <xs:complexType name="UpdateDiscRating">
     <xs:sequence>
-      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="rating" type="xs:double" />
+      <xs:element name="comments" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="getDiscsByArtistIdResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
+  <xs:complexType name="UpdateDiscRatingResponse">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="getDiscById">
     <xs:sequence>

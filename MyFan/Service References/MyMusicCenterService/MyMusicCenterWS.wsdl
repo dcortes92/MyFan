@@ -5,23 +5,11 @@
       <xsd:import schemaLocation="http://192.168.1.103:8080/MyMusicCenterProj/MyMusicCenterWS?xsd=1" namespace="http://Proxy/" />
     </xsd:schema>
   </types>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
+  <message name="getDiscById">
+    <part name="parameters" element="tns:getDiscById" />
   </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
-  </message>
-  <message name="getNewsById">
-    <part name="parameters" element="tns:getNewsById" />
-  </message>
-  <message name="getNewsByIdResponse">
-    <part name="parameters" element="tns:getNewsByIdResponse" />
-  </message>
-  <message name="getDiscsByArtistId">
-    <part name="parameters" element="tns:getDiscsByArtistId" />
-  </message>
-  <message name="getDiscsByArtistIdResponse">
-    <part name="parameters" element="tns:getDiscsByArtistIdResponse" />
+  <message name="getDiscByIdResponse">
+    <part name="parameters" element="tns:getDiscByIdResponse" />
   </message>
   <message name="getArtistById">
     <part name="parameters" element="tns:getArtistById" />
@@ -47,24 +35,34 @@
   <message name="getNewsByArtistIdResponse">
     <part name="parameters" element="tns:getNewsByArtistIdResponse" />
   </message>
-  <message name="getDiscById">
-    <part name="parameters" element="tns:getDiscById" />
+  <message name="getDiscsByArtistId">
+    <part name="parameters" element="tns:getDiscsByArtistId" />
   </message>
-  <message name="getDiscByIdResponse">
-    <part name="parameters" element="tns:getDiscByIdResponse" />
+  <message name="getDiscsByArtistIdResponse">
+    <part name="parameters" element="tns:getDiscsByArtistIdResponse" />
+  </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
+  <message name="getNewsById">
+    <part name="parameters" element="tns:getNewsById" />
+  </message>
+  <message name="getNewsByIdResponse">
+    <part name="parameters" element="tns:getNewsByIdResponse" />
+  </message>
+  <message name="UpdateDiscRating">
+    <part name="parameters" element="tns:UpdateDiscRating" />
+  </message>
+  <message name="UpdateDiscRatingResponse">
+    <part name="parameters" element="tns:UpdateDiscRatingResponse" />
   </message>
   <portType name="MyMusicCenterWS">
-    <operation name="hello">
-      <input wsam:Action="http://Proxy/MyMusicCenterWS/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://Proxy/MyMusicCenterWS/helloResponse" message="tns:helloResponse" />
-    </operation>
-    <operation name="getNewsById">
-      <input wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByIdRequest" message="tns:getNewsById" />
-      <output wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByIdResponse" message="tns:getNewsByIdResponse" />
-    </operation>
-    <operation name="getDiscsByArtistId">
-      <input wsam:Action="http://Proxy/MyMusicCenterWS/getDiscsByArtistIdRequest" message="tns:getDiscsByArtistId" />
-      <output wsam:Action="http://Proxy/MyMusicCenterWS/getDiscsByArtistIdResponse" message="tns:getDiscsByArtistIdResponse" />
+    <operation name="getDiscById">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/getDiscByIdRequest" message="tns:getDiscById" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/getDiscByIdResponse" message="tns:getDiscByIdResponse" />
     </operation>
     <operation name="getArtistById">
       <input wsam:Action="http://Proxy/MyMusicCenterWS/getArtistByIdRequest" message="tns:getArtistById" />
@@ -82,32 +80,26 @@
       <input wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByArtistIdRequest" message="tns:getNewsByArtistId" />
       <output wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByArtistIdResponse" message="tns:getNewsByArtistIdResponse" />
     </operation>
-    <operation name="getDiscById">
-      <input wsam:Action="http://Proxy/MyMusicCenterWS/getDiscByIdRequest" message="tns:getDiscById" />
-      <output wsam:Action="http://Proxy/MyMusicCenterWS/getDiscByIdResponse" message="tns:getDiscByIdResponse" />
+    <operation name="getDiscsByArtistId">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/getDiscsByArtistIdRequest" message="tns:getDiscsByArtistId" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/getDiscsByArtistIdResponse" message="tns:getDiscsByArtistIdResponse" />
+    </operation>
+    <operation name="hello">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/helloResponse" message="tns:helloResponse" />
+    </operation>
+    <operation name="getNewsById">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByIdRequest" message="tns:getNewsById" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/getNewsByIdResponse" message="tns:getNewsByIdResponse" />
+    </operation>
+    <operation name="UpdateDiscRating">
+      <input wsam:Action="http://Proxy/MyMusicCenterWS/UpdateDiscRatingRequest" message="tns:UpdateDiscRating" />
+      <output wsam:Action="http://Proxy/MyMusicCenterWS/UpdateDiscRatingResponse" message="tns:UpdateDiscRatingResponse" />
     </operation>
   </portType>
   <binding name="MyMusicCenterWSPortBinding" type="tns:MyMusicCenterWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="hello">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="getNewsById">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="getDiscsByArtistId">
+    <operation name="getDiscById">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -152,7 +144,34 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="getDiscById">
+    <operation name="getDiscsByArtistId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="hello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getNewsById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="UpdateDiscRating">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

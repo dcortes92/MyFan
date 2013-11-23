@@ -158,6 +158,9 @@
     <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.getDiscsByArtistIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\MyMusicCenterService\MyFan.MyMusicCenterService.UpdateDiscRatingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\MyMusicCenterService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -288,6 +291,8 @@
   <ItemGroup>
     <Compile Include="App_Code\Artista\Artist.cs" />
     <Compile Include="App_Code\Artista\ArtistProxy.cs" />
+    <Compile Include="App_Code\Comentario\Comentario.cs" />
+    <Compile Include="App_Code\Comentario\ComentarioDAL.cs" />
     <Compile Include="App_Code\Disc\Disc.cs" />
     <Compile Include="App_Code\Disc\DiscProxy.cs" />
     <Compile Include="App_Code\Evento\Evento.cs" />
