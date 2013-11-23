@@ -101,6 +101,11 @@ namespace MyFan.WebPages.Fans
                         action = -1;
                         Session["Action"] = action;
                     }
+                    else
+                    {
+                        action = 1;
+                        Session["Action"] = action;
+                    }
                 }
                 
             }

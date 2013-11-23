@@ -6,5 +6,5 @@
         <h2>&Uacute;ltimas noticias</h2>
     </hgroup>
 
-
+    <asp:Label ID="lblNoticias" runat="server"></asp:Label>
 </asp:Content>
