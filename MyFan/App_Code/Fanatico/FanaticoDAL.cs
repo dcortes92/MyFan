@@ -129,7 +129,11 @@ namespace MyFan.App_Code.Fanatico
 
                 if (obj != null)
                 {
-                    retorno = true;
+                    if (obj.GetType() == typeof(SqlDataReader))
+                    {
+                        reader = (SqlDataReader)obj;
+                        retorno = true;
+                    }
                 }
                 connection.closeConnection();
             }
