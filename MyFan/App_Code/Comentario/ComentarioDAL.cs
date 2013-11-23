@@ -86,12 +86,12 @@ namespace MyFan.App_Code.Comentario
         /// </summary>
         /// <param name="calificacion">Users rating</param>
         /// <param name="cantidad_comentarios">Number of comments, to obtain the average rating.</param>
-        public void send(String usuario, Disc.Disc disco, float calificacion)
+        public void send(String usuario, Disc.Disc disco)
         {
             mmc = new MyMusicCenterWSClient();
-            mmc.UpdateDiscRating(disco.Id, calificacion);
+            mmc.UpdateDiscRating(disco.Id, disco.Rating);
             TwitterClient tc = new TwitterClient();
-            tc.tweet(usuario + " ha calificado " + disco.Title + " con " + calificacion);
+            tc.tweet(usuario + " ha calificado " + disco.Title);
         }
     }
 }

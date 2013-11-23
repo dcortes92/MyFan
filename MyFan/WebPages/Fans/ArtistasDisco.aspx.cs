@@ -89,7 +89,7 @@ namespace MyFan.WebPages.Fans
         protected void btnCalificarDisco_Click(object sender, EventArgs e)
         {
             publicarComentario();
-            //enviarCalificacion();
+            enviarCalificacion();
         }
 
         /// <summary>
@@ -125,17 +125,7 @@ namespace MyFan.WebPages.Fans
             if (usuario != null && disc != null )
             {
                 comentarioDAL = new ComentarioDAL();
-                int calificacion;
-                try
-                {
-                    calificacion = int.Parse(txtCalificacion.Text);
-                    
-                }
-                catch(Exception ex)
-                {
-                    lblResultado.Text = "Debe ingresar un número entero del 1 al 10.";
-                    lblResultado.CssClass = "message-error";
-                }
+                comentarioDAL.send(usuario.Nombre_Usuario, disc);
             }
             else
             {
@@ -166,6 +156,8 @@ namespace MyFan.WebPages.Fans
                         lblResultado.Text = "Calificación enviada correctamente";
                         lblResultado.CssClass = "message-success";
                         lblCalifiacion.Text = "Calificación: " + promedio_comentarios + "/10";
+                        disc.Rating = promedio_comentarios;
+                        Session["Disco"] = disc;
                     }
                     else
                     {
